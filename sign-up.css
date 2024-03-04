@@ -47,7 +47,7 @@ body{
 h1{
     position: absolute;
     top:100px;
-    left:100px;
+    left:80px;
     font-family: 'Arkhip', sans-serif;
     color: white;
     text-shadow: 0 2px 10px black;
@@ -62,7 +62,7 @@ p{
 a{
     text-decoration: none;
 }
-#sign-up{
+#sign-in{
     font-family: 'Arkhip', sans-serif;
     color: white;
     font-size: 30px;
@@ -75,7 +75,7 @@ a{
 }
 .container{
     position: absolute;
-    left:60px;
+    left:65px;
     display: flex;
     align-items: center;
 
@@ -84,45 +84,71 @@ a{
 
 
 
-
-
-
-
-
-
 .email-field {
     position: relative;
-    margin-bottom: 15px;
-}
-
-.email-label {
-    position: absolute;
-    top: calc(50% - 7px); 
-    left: 10px; 
-    transform: none; 
-    line-height: 1; 
-    font-size: 16px;
-    color: #ccc;
-    pointer-events: none;
-    transition: opacity 0.2s ease-in-out;
+    margin-bottom: 20px;
+    top: 200px; /* Adjust as needed */
+    left:80px;
 }
 
 .email-input {
-    width: 100%;
-    padding: 10px 15px;
-    border: 3px solid white; /* Default border color */
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
+    width: 350px; 
+    height: 35px; 
+    padding: 5px;
+    transition: border-color 0.3s; 
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 2px solid white;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    outline: none;
+    position: relative; /* Ensure z-index works */
 }
 
 .email-input:focus,
 .email-input.has-value {
-    border-color: #892680; /* Border color when in field set mode */
+    border-color: #892680; /* Change border color on focus or when value exists */
 }
 
-.email-input:focus + .email-label,
-.email-input.has-value + .email-label {
-    opacity: 0.5;
-    margin-top: -20px; /* Adjusted position of the label */
+.email-label {
+    position: absolute;
+    top: 9px;
+    left: 25px;
+    color: #fff; /* Change text color to white */
+    font-size: 22px; /* Change font size to 20px */
+    font-family: "SF Pro Medium Italic", "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif; /* Change font family */
+    transition: top 0.3s, font-size 0.3s, color 0.3s;
+    pointer-events: none;
+    z-index: 1; /* Ensure the label is above the transparent border */
 }
+
+.email-input::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: 2px solid transparent; /* Set border to transparent */
+    z-index: 0; /* Ensure the pseudo-element is behind the label */
+    transition: border-color 0.3s; /* Transition for border color */
+}
+
+.email-input:focus ~ .email-label,
+.email-input:not(:placeholder-shown):not(:focus) ~ .email-label {
+    top: -10px;
+    font-size: 18px;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(to bottom, #9A9B9A, #989998, #B9B9B6, #B6B6B3);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.email-input:focus::before,
+.email-input.has-value::before {
+    border-color: rgba(137, 38, 128, 0.5); /* Partially transparent border */
+    
+}
+
