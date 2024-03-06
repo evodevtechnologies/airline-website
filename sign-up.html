@@ -5,37 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AVIAS</title>
     <link rel="stylesheet" href="sign-up.css">
-    <script src="sign-in.js" defer></script>
-
-
+    <script src="sign-up.js" defer></script>
 </head>
 <body>
     <a href="index.html"><img src="images/AVIAS_Gold.png" id="logo"></a>
     <a href="#">Forget Password?</a>
-    <button>Sign In</button>
     <label><input type="checkbox">Remember Me</label>
     <div id="big-glass">
-    <h1>SIGN UP</h1>
-    <form>
-        <div class="email-field">
-            <input type="email" class="email-input" id="email" placeholder=" " required>
-            <label for="email" class="email-label"><i>Enter your email</i></label>
+        <h1>SIGN UP</h1>
+        <form>
+            <div class="email-field">
+                <input type="email" class="email-input" id="email" placeholder=" " required>
+                <label for="email" class="email-label"><i>Enter your email</i></label>
+            </div>
+            <div class="password-field">
+                <input type="password" class="password-input" id="password" placeholder=" " required>
+                <label for="password" class="password-label"><i>Enter your password</i></label>
+            </div>
+            <div class="confirm-password-field">
+                <input type="password" class="confirm-password-input" id="confirmPassword" placeholder=" " required>
+                <label for="confirmPassword" class="confirm-password-label"><i>Confirm your password</i></label>
+            </div>
+            <input type="submit" value="Sign Up" >
+        </form>
+    </div>
+    <a>
+        <div id="small-glass">
+            <p><i>Already a member?</i></p>
+            <div class="container">
+                <a id="sign-in" href="sign-in.html">SIGN IN</a>
+                <a href="#"><img id="arrow_1" src="images/arrow_1.png"></a>
+            </div>
         </div>
-        
-    <input type="submit" value="Sign In">
-    </form>
-
-
-    </div>
-    <a><div id="small-glass">
-        <p><i>Already a member?</i></p>
-        <div class="container">
-            <a id="sign-in" href="sign-in.html">SIGN IN</a>
-            <a href="#"><img id="arrow_1" src="images/arrow_1.png"></a>
-        </div></a>
-    
-    </div>
-
-
+    </a>
 </body>
 </html>

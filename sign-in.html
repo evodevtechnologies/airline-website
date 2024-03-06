@@ -11,17 +11,37 @@
 </head>
 <body>
     <a href="index.html"><img src="images/AVIAS_Gold.png" id="logo"></a>
-    <a href="#">Forget Password?</a>
+    
     <button>Sign In</button>
-    <label><input type="checkbox">Remember Me</label>
+    
     <div id="big-glass">
     <h1>SIGN IN</h1>
-    <form>
+
+
+
+    <form id="a">
         <div class="email-field">
-            <input type="email" class="email-input" placeholder="Email" id="email">
-            <label for="email" class="email-label">Email</label>
+            <input type="email" class="email-input" id="email" placeholder=" " required>
+            <label for="email" class="email-label"><i>Enter your email</i></label>
         </div>
-    <input type="submit" value="Sign In">
+        <div class="password-field">
+            <input type="password" class="password-input" id="password" placeholder=" " required>
+            <label for="password" class="password-label"><i>Enter your password</i></label>
+        </div>
+        <label id="rem-me"><input type="checkbox"><b><i>Remember Me</i></b></label>
+        <a href="#" id="forget-pass"><b><i>Forget password?</i></b></a>
+    <input type="submit" value="Sign In" id="sign-in">
+    <div id="line_1"></div>
+    <div id="line_2"></div>
+    <p id="or"><b>OR</b></p>
+    <a id="sign-in-google" href="sign-up.html">
+        <img src="images/google_logo.png" alt="Google Logo">
+        <span>Sign In With Google</span>
+    </a>
+    
+    
+    <input type="submit" value="Sign In with Apple" id="sign-in-apple">
+
     </form>
 
 
