@@ -1,0 +1,151 @@
+body {
+    border: 0px;
+    margin: 0px;
+    color: gold;
+    overflow: hidden;
+}
+
+.offers {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: -5px; */
+}
+
+.top-bar {
+    margin-top: -5px;
+    background-color: white;
+    height: 50px;
+    padding: 10px;
+}
+
+.hero {
+    height: 600px;
+    width: 100%;
+    /* background-color: tomato; */
+    /* background-attachment: fixed; */
+    background-image: url('img/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+
+
+img {
+    float: left;
+    height: 30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.cred-section {
+    float: right;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/* CSS */
+.button-1 {
+    background-color: #892680;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    width: 100px;
+    line-height: 20px;
+    padding: 10px 16px;
+    text-align: center;
+}
+
+.button-1:hover,
+.button-1:focus {
+    background-color: #792172;
+}
+
+/* horizontal scroll styling */
+@keyframes scrolldown {
+  from {
+    top: 0;
+  }
+  
+  to {
+    top: 300px;
+  }
+}
+
+@keyframes horizontalTransform {
+  from {
+    transform: translateX(0px); 
+  }
+  
+  to {
+    transform: translateX(-300px);
+  }
+}
+
+
+main {
+  height: 100vh;
+  overflow: hidden;
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  width: 300px;
+  height: 500px;
+  border: 1px solid green;
+}
+
+.viewport {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  border: 1px solid blue;
+  transition: top 0.5s;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  animation: scrolldown 2s ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+.horizontal-object {
+  position: relative;
+  width: 200%;
+  height: 100px;
+  border: 1px solid red;
+  animation: horizontalTransform 2s ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+
+.horizontal-card {
+  height: 80%;
+  width: 125px;
+  background: red;
+  margin: 0 16px;
+}

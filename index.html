@@ -3,81 +3,11 @@
 
 <head>
 
-    <style>
-        body {
-            border: 0px;
-            margin: 0px;
-            color: gold;
-        }
-
-        .offers {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            /* padding: -5px; */
-        }
-
-        .top-bar {
-            margin-top: -5px;
-            background-color: white;
-            height: 50px;
-            padding: 10px;
-        }
-
-        .hero {
-            height: 600px;
-            width: 100%;
-            /* background-color: tomato; */
-            /* background-attachment: fixed; */
-            background-image: url('img/hero.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            }
-
-
-        img {
-            float: left;
-            height: 30px;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .cred-section {
-            float: right;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-
-        /* CSS */
-        .button-1 {
-            background-color: #892680;
-            border-radius: 8px;
-            border-style: none;
-            box-sizing: border-box;
-            color: #FFFFFF;
-            cursor: pointer;
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 500;
-            height: 40px;
-            width: 100px;
-            line-height: 20px;
-            padding: 10px 16px;
-            text-align: center;
-        }
-
-        .button-1:hover,
-        .button-1:focus {
-            background-color: #792172;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 
 <body>
@@ -103,11 +33,28 @@
             <button class="button-1" role="button">Sign Up</button>
         </div>
     </div>
-
+<!-- 
     <div class="hero">
 
 
-    </div>
+    </div> -->
+
+    <!-- Image Carousel with vertical scrolling effect for showing the fleet -->
+    <main>
+        <section>
+          <div class="container">
+            <div class="viewport">
+              <div class="horizontal-object">
+                <div class="horizontal-card"></div>
+                <div class="horizontal-card"></div>
+                <div class="horizontal-card"></div>
+                <div class="horizontal-card"></div>          
+                <div class="horizontal-card"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
 
 </body>
 
