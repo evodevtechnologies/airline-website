@@ -141,7 +141,7 @@ a{
     top: -10px;
     font-size: 18px;
     font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
-    background: linear-gradient(to bottom, #9A9B9A, #989998, #B9B9B6, #B6B6B3);
+    background: linear-gradient(to bottom, #AFA99F,#D0C5B6);
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -294,3 +294,6 @@ a{
 .confirm-password-input.has-value::before {
     border-color: rgba(137, 38, 128, 0.5); /* Partially transparent border */
 }
+
+
+

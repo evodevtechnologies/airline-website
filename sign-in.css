@@ -1,35 +1,53 @@
-body{
-    margin:0;
+body {
+    margin: 0;
     background-image: url('images/sign_up_bg.png');
-            background-size: cover; 
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
-#logo{
+#logo {
     position: absolute;
-    top:10px;
-    left:16px;
-    height:48px;
+    top: 10px;
+    left: 16px;
+    height: 48px;
 }
-#big-glass{
+
+#big-glass {
     position: fixed;
-            top: 0;
-            left: calc(100% - 700px);
-            height: 100%;
-            width: 550px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    top: 0;
+    left: calc(100% - 700px);
+    height: 100%;
+    width: 550px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    z-index: 1;
 }
-#small-glass{
+@keyframes slideInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#big-glass > * {
+    animation: slideInFromBottom 0.7s ease forwards;
+}
+
+#small-glass {
     position: fixed;
-    top: 75%; 
-    left: 8%; 
+    top: 75%;
+    left: 8%;
     height: 150px;
     width: 300px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -38,64 +56,76 @@ body{
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    animation: slideInFromLeft 0.7s ease forwards;
+
 }
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 @media (max-width: 1196px) {
     #big-glass {
         left: calc(50% - 258.5px);
     }
 }
-h1{
+
+h1 {
     position: absolute;
-    top:100px;
-    left:80px;
+    top: 120px;
+    left: 98px;
     font-family: 'Arkhip', sans-serif;
     color: white;
-    text-shadow: 0 2px 10px black;
+    text-shadow: 0 2px 40px black;
     font-size: 40px;
 }
-p{
+
+#line_3{
     font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
     text-align: center;
     color: white;
     font-size: 23px;
 }
-a{
+
+a {
     text-decoration: none;
 }
-#sign-up{
+
+#sign-up {
     font-family: 'Arkhip', sans-serif;
     color: white;
     font-size: 30px;
 }
-#arrow_1{
+
+#arrow_1 {
     height: 30px;
     margin-left: 5px;
     margin-top: -5px;
-
 }
-.container{
+
+.container {
     position: absolute;
-    left:65px;
+    left: 65px;
     display: flex;
     align-items: center;
-
 }
-
-
-
 
 .email-field {
     position: relative;
     margin-bottom: 20px;
-    top: 225px; /* Adjust as needed */
-    left:80px;
+    top: 225px;
+    left: 98px;
 }
 
 .email-input {
-    width: 350px; 
-    height: 35px; 
+    width: 350px;
+    height: 35px;
     padding: 5px;
-    transition: border-color 0.3s; 
+    transition: border-color 0.3s;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -103,24 +133,27 @@ a{
     border: 2px solid white;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     outline: none;
-    position: relative; /* Ensure z-index works */
+    position: relative;
+    font-size: 16px;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+    
 }
 
 .email-input:focus,
 .email-input.has-value {
-    border-color: #892680; /* Change border color on focus or when value exists */
+    border-color: #892680;
 }
 
 .email-label {
     position: absolute;
     top: 9px;
     left: 25px;
-    color: #fff; /* Change text color to white */
-    font-size: 22px; /* Change font size to 20px */
-    font-family: "SF Pro Medium Italic", "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif; /* Change font family */
+    color: #fff;
+    font-size: 22px;
+    font-family: "SF Pro Medium Italic", "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
     transition: top 0.3s, font-size 0.3s, color 0.3s;
     pointer-events: none;
-    z-index: 1; /* Ensure the label is above the transparent border */
+    z-index: 1;
 }
 
 .email-input::before {
@@ -131,9 +164,9 @@ a{
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    border: 2px solid transparent; /* Set border to transparent */
-    z-index: 0; /* Ensure the pseudo-element is behind the label */
-    transition: border-color 0.3s; /* Transition for border color */
+    border: 2px solid transparent;
+    z-index: 0;
+    transition: border-color 0.3s;
 }
 
 .email-input:focus ~ .email-label,
@@ -141,30 +174,25 @@ a{
     top: -10px;
     font-size: 18px;
     font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
-    background: linear-gradient(to bottom, #9A9B9A, #989998, #B9B9B6, #B6B6B3);
+    background: linear-gradient(to bottom, #AFA99F,#D0C5B6);
     padding-left: 5px;
     padding-right: 5px;
 }
 
 .email-input:focus::before,
 .email-input.has-value::before {
-    border-color: rgba(137, 38, 128, 0.5); /* Partially transparent border */
-    
+    border-color: rgba(137, 38, 128, 0.5);
 }
+
 .email-input.invalid {
     border-color: red;
 }
 
-
-
-
-
-
 .password-field {
     position: relative;
     margin-bottom: 20px;
-    top: 230px; /* Adjust as needed */
-    left:80px;
+    top: 230px;
+    left: 98px;
 }
 
 .password-input {
@@ -179,25 +207,44 @@ a{
     border: 2px solid white;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     outline: none;
-    position: relative; /* Ensure z-index works */
+    position: relative;
+    font-size: 16px;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+    
 }
 
 .password-input:focus,
 .password-input.has-value {
-    border-color: #892680; /* Change border color on focus or when value exists */
+    border-color: #892680;
 }
 
 .password-label {
     position: absolute;
     top: 9px;
     left: 25px;
-    color: #fff; /* Change text color to white */
-    font-size: 22px; /* Change font size to 20px */
-    font-family: "SF Pro Medium Italic", "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif; /* Change font family */
+    color: #fff;
+    font-size: 22px;
+    font-family: "SF Pro Medium Italic", "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
     transition: top 0.3s, font-size 0.3s, color 0.3s;
     pointer-events: none;
-    z-index: 1; /* Ensure the label is above the transparent border */
+    z-index: 1;
 }
+
+.show-password-icon {
+    position: relative;
+    top: 7px;
+    left: -45px;
+    cursor: pointer;
+    height: 25px;
+    transition: transform 0.1s ease, filter 0.1s ease;
+}
+
+.show-password-icon:active {
+    transform: scale(0.95); 
+    filter: brightness(80%);
+}
+
+
 
 .password-input::before {
     content: '';
@@ -207,9 +254,9 @@ a{
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    border: 2px solid transparent; /* Set border to transparent */
-    z-index: 0; /* Ensure the pseudo-element is behind the label */
-    transition: border-color 0.3s; /* Transition for border color */
+    border: 2px solid transparent;
+    z-index: 0;
+    transition: border-color 0.3s;
 }
 
 .password-input:focus ~ .password-label,
@@ -224,16 +271,13 @@ a{
 
 .password-input:focus::before,
 .password-input.has-value::before {
-    border-color: rgba(137, 38, 128, 0.5); /* Partially transparent border */
+    border-color: rgba(137, 38, 128, 0.5);
 }
-
-
-
 
 #rem-me {
     position: relative;
     top: 230px;
-    left: 105px;
+    left: 124px; 
     font-size: 16px;
     font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
     font-style: bold;
@@ -241,7 +285,6 @@ a{
     color: #892680;
 }
 
-/* Hide the default checkbox */
 #rem-me input[type="checkbox"] {
     display: none;
 }
@@ -249,31 +292,30 @@ a{
 #rem-me::before {
     content: "";
     display: inline-block;
-    width: 12px; /* Adjust the size of the checkbox */
-    height: 12px; /* Adjust the size of the checkbox */
-    border: 1px solid #892680; /* Border color */
-    background-color: transparent; /* Fill color */
+    width: 12px; 
+    height: 12px;
+    border: 1px solid #892680; 
+    background-color: transparent; 
     position: absolute;
-    left: -18px; /* Adjust position */
-    top: 2px; /* Adjust position */
+    left: -20px; 
+    top: 2px; 
     border-radius: 3px;
 }
 
 #rem-me input[type="checkbox"]:checked + b::before {
-    content: "\2713"; 
+    content: "\2713";
     font-size: 16px;
-    color: #892680; 
+    color: #892680;
     position: absolute;
-    left: -18px; 
+    left: -20px;
     top: -1px;
 }
-
 
 
 #forget-pass{
     position: relative;
     top:230px;
-    left:170px;
+    left:186px;
     font-size: 16px;
     font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
     font-style: bold;
@@ -281,19 +323,11 @@ a{
     color: #892680;
 
 }
-@keyframes rollColor {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 100% 0;
-    }
-}
 
 #sign-in {
     position: relative;
-    top: 290px;
-    left: -125px;
+    top: 300px;
+    left: -100px;
     height: 40px;
     width: 220px;
     border-radius: 20px;
@@ -301,36 +335,50 @@ a{
     font-size: 20px;
     font-weight: bold;
     font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
-    background-image: linear-gradient(to left, #D9D9D9, #C0BCBC);
+    background-color: #FFFFFF;
     letter-spacing: 0px;
     color: #504949;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     cursor: pointer;
     overflow: hidden;
-    transition: background-position 0.3s ease; /* Adding transition for smooth effect */
+    transition: box-shadow 0.3s, background-position 0.3s;
+    background-image: linear-gradient(to right, #FFFFFF 50%, #892680 50%);
+    background-size: 200% 100%;
 }
 
 #sign-in:hover {
-    background-position: 100% 0; /* Move the background color from left to right */
+    background-position: -100% 0; 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
+    color: white;
+
 }
 
- 
+
+
+#sign-in:active {
+    background-color: #E6E6E6; 
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.37); 
+    transform: scale(0.99); 
+}
+
+
+
 
 
 #line_1{
     position: relative;
     top:340px;
-    left:80px;
+    left:98px;
     height:1px;
-    width:155px;
+    width:164px;
     background-color: #504949;
 }
 #line_2{
     position: relative;
     top:340px;
-    left:289px;
+    left:298px;
     height:1px;
-    width:155px;
+    width:164px;
     background-color: #504949;
 }
 
@@ -338,7 +386,7 @@ a{
 #or{
     position: relative;
     top:310.5px;
-    left:-14px;
+    left:267.5px;
     font-size: 18px;
     font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
     font-style: bold;
@@ -346,27 +394,99 @@ a{
 
 }
 
-#sign-in-google{
+#line{
     position: relative;
-    top:290px;
-    left:-125px;
-    height: 40px;
-    width: 220px;
-    padding: 5px;
-    border-radius: 20px;
-    border:solid 2px #892680;
-    font-size: 20px;
+    top:0px;
+}
+
+#sign-in-google {
+    height: 30px; 
+    width:300px;
+    position: relative;
+    top:320px;
+    left:118px;
+    width:300px;
+    display: inline-block; 
+    position: relative;
+    padding: 5px 10px; 
+    border-radius: 50px;
+    border: solid 2px #892680;
+    font-size: 18px;
     font-weight: bold;
     font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
-    background-image: linear-gradient(to left, #D9D9D9, #C0BCBC);
+    background-color: #FFFFFF;
     letter-spacing: 0px;
     color: #504949;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 30px; 
+    color: #504949;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+}
 
-}
 #sign-in-google img {
-    height: 40px;
-    vertical-align: middle; 
-    margin-right: 10px; 
+
+    height: 30px;
+    margin-right: 10px;
 }
+#sign-in-google:active {
+    transform: scale(0.99); 
+    filter: brightness(90%);
+}
+
+#sign-in-apple {
+    height: 30px; 
+    width:300px;
+    position: relative;
+    top:340px;
+    left:118px;
+    width:300px;
+    display: inline-block; 
+    position: relative;
+    padding: 5px 10px; 
+    border-radius: 50px;
+    border: solid 2px black;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: black;
+    letter-spacing: 0px;
+    color: #504949;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 30px; 
+    color: #FFFFFF;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+}
+#sign-in-apple img {
+
+    height: 25px;
+    margin-right: 10px;
+}
+#sign-in-apple:active {
+    transform: scale(0.99); 
+    filter: brightness(90%);
+}
+
+#tnc {
+    position: relative;
+    top: 350px;
+    left: 280px; 
+    transform: translateX(-50%); 
+    text-align: center; 
+    line-height: 22px;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+#tos{
+    color: #892680;
+}
+
+
+
 
