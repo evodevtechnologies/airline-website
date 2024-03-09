@@ -16,25 +16,28 @@
 
         }
 
-        #viewport-container {
+        /* Temporary buffer */
+        .b {
+            height: 400px;
             width: 100%;
-            height: 100vh;
-            /* background-color: #f2f2f2; */
-            position: sticky;
-            top: 0;
         }
 
         .container {
             height: 500vh;
             width: 100%;
-            /* background-color: tomato; */
             position: relative;
         }
 
-        #viewport {
-            height: 50vh;
+        #viewport-container {
             width: 100%;
-            /* background-color: aqua; */
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        #viewport {
+            height: 80vh;
+            width: 100%;
             top: 50%;
             transform: translateY(-50%);
             overflow: hidden;
@@ -46,26 +49,21 @@
             width: 500vh;
             height: 100%;
             position: relative;
-            /* background-color: blueviolet; */
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            transform: rotateX(90deg);
 
         }
 
         .horizontal-card {
             white-space: nowrap;
             border: #f2f2f2 5px solid;
-            height: 80%;
-            width: 22%;
-            /* background: red; */
-            background-image: url('https://source.unsplash.com/random');
-        }
-
-        .b {
-            height: 400px;
-            width: 100%;
-            /* background-color: aquamarine; */
+            height: 100%;
+            width: 80vw;
+            background-image: url('img/hero.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
         }
     </style>
 
@@ -81,11 +79,21 @@
             <div id="viewport-container">
                 <div class="viewport" id="viewport">
                     <div class="card-holder" id="card-holder">
-                        <div class="horizontal-card"></div>
-                        <div class="horizontal-card"></div>
-                        <div class="horizontal-card"></div>
-                        <div class="horizontal-card"></div>
-                        <div class="horizontal-card"></div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
                     </div>
                 </div>
             </div>
