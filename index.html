@@ -3,78 +3,9 @@
 
 <head>
 
-    <style>
-        body {
-            border: 0px;
-            margin: 0px;
-            color: gold;
-        }
-
-        .offers {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            /* padding: -5px; */
-        }
-
-        .top-bar {
-            margin-top: -5px;
-            background-color: white;
-            height: 50px;
-            padding: 10px;
-        }
-
-        .hero {
-            height: 600px;
-            width: 100%;
-            /* background-color: tomato; */
-            /* background-attachment: fixed; */
-            background-image: url('images/hero.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            }
-
-
-        img {
-            float: left;
-            height: 30px;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .cred-section {
-            float: right;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-
-        /* CSS */
-        .button-1 {
-            background-color: #892680;
-            border-radius: 8px;
-            border-style: none;
-            box-sizing: border-box;
-            color: #FFFFFF;
-            cursor: pointer;
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 500;
-            height: 40px;
-            width: 100px;
-            line-height: 20px;
-            padding: 10px 16px;
-            text-align: center;
-        }
-
-        .button-1:hover,
-        .button-1:focus {
-            background-color: #792172;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="countUp.js"></script>
+    <script src="script.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -93,21 +24,121 @@
     </marquee>
 
     <div class="top-bar">
+        <img src="images/logo.png" alt="logo" class="logo">
 
-        <!-- <div class="logo"> -->
-        <img src="images/logo.png" alt="logo">
-        <!-- </div> -->
+        <nav>
+            <a href="#" class="hover-line">Booking</a>
+            <a href="#" class="hover-line">Services</a>
+            <a href="#" class="hover-line">About us</a>
+            <a href="#" class="hover-line">Contact Us</a>
+            <div class="animation start-hom"></div>
+        </nav>
 
         <div class="cred-section">
+            
             <button class="button-1" role="button" onclick="window.location.href = 'sign-in.html';">Sign In</button>
             <button class="button-1" role="button" onclick="window.location.href = 'sign-up.html';">Sign Up</button>
         </div>
     </div>
 
-    <div class="hero">
+    <header class="hero">
+
+    </header>
+
+    <section class="buttons-section">
+    </section>
+
+<section class="count-up">
+    <h1 id='MyNumber1'>0</h1>
+    <h1 id='MyNumber2'>0</h1>
+    <h1 id='MyNumber3'>0</h1>
+    </section>
 
 
-    </div>
+    <section class="horizontal-scroll">
+        <div class="container">
+            <div id="viewport-container">
+                <div class="viewport" id="viewport">
+                    <div class="card-holder" id="card-holder">
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <br>
+
+    <section class="horizontal-scroll">
+        <div class="container">
+            <div id="viewport-container">
+                <div class="viewport" id="viewport">
+                    <div class="card-holder" id="card-holder">
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                        <div class="horizontal-card">
+                            <h3>conents</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <footer>
+          <header>
+            <!-- <img src="images/logo.png" alt="logo" class="logo"> -->
+            <p>"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis, accusantium?"</p>
+            <ul class='icons'>
+              <ion-icon class='icon' name="logo-facebook"></ion-icon>
+              <ion-icon class='icon' name="logo-instagram"></ion-icon>
+              <ion-icon class='icon' name="logo-twitter"></ion-icon>
+              <ion-icon class='icon' name="logo-youtube"></ion-icon>
+            </ul>
+          </header>
+          <aside>
+            <ul class='category'>
+              <li>
+                <h2>Reach us</h2>
+              </li>
+              <li><img>+1012 3456 789</li>
+              <li><img>demo@gmail.com</li>
+              <li><img>VIT Vellore, Vellore</li>
+            </ul>
+          </aside>
+          <h3>© AVIAS 2024</h3>
+        </footer>
+      </main>
+      
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
 
