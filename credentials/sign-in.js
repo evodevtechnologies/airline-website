@@ -17,10 +17,10 @@ function togglePasswordVisibility() {
 
     if (passwordInput.type === "password") {
         passwordInput.type = "text";
-        showPasswordIcon.src = "images/hide_pass.png"; 
+        showPasswordIcon.src = "../images/hide_pass.png"; 
     } else {
         passwordInput.type = "password";
-        showPasswordIcon.src = "images/show_pass.png"; 
+        showPasswordIcon.src = "../images/show_pass.png"; 
     }
 }
 

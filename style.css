@@ -2,6 +2,8 @@ body {
     border: 0px;
     margin: 0px;
     color: gold;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 .offers {
@@ -69,7 +71,7 @@ nav{
 }
 
 nav a{
-  font-size: 15px;
+  font-size: 20px;
   color: black;
   text-transform: uppercase;
   text-decoration: none;
@@ -110,14 +112,7 @@ nav a:hover{
   background-repeat: no-repeat;
   }
 
-  .count-up{
 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 50px;
-
-  }
   
   h1{
     font-weight: 800;
@@ -126,11 +121,6 @@ nav a:hover{
 
 /* Horiazontal scroll */
 
-.horizontal-scroll{
-
-  position: relative;
-
-}
   .container {
     height: 500vh;
     width: 100%;
@@ -142,6 +132,7 @@ nav a:hover{
     height: 100vh;
     position: sticky;
     top: 0;
+    overflow-x: hidden;
 }
 
 #viewport {
@@ -169,7 +160,7 @@ nav a:hover{
     border: #f2f2f2 5px solid;
     height: 100%;
     width: 80vw;
-    background-image: url('img/hero.jpg');
+    background-image: url('images/hero.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -188,137 +179,127 @@ nav a:hover{
 main {
   display: flex;
   flex-direction: column;
-
-  & nav {
-    position: fixed;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem; 
-
-    & .logo { font-size: 1.25rem;  } 
-    & .menu { font-size: 1.5rem; }
-  }
-
-  & > header {
-    position: relative;
-    height: 70vh;
-    display: grid;
-    align-content: center;
-    text-align: center;
-    gap: 0.5rem;
-    font: 1rem helvetica,sans-serif;
-
-    & p {
-      font-size: 0.8rem;
-      font-style: italic;
-    }
-
-    & span {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateY(-50%);
-      width: 13px;
-      height: 13px;
-      background-color: black;
-      border-radius: 50%;
-
-      &::before, &::after {
-        content: '';
-        position: absolute;
-        width: 11px;
-        height: 11px;
-        border: 1px solid black;
-        border-radius: 50%;
-        cursor: pointer;
-      }
-
-      &::before { left: -18px; }
-      &::after  { left: 18px; }
-    }
-  }
 }
-
+main nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+main nav .logo {
+  font-size: 1.25rem;
+}
+main nav .menu {
+  font-size: 1.5rem;
+}
+main > header {
+  position: relative;
+  height: 70vh;
+  display: grid;
+  align-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  font: 1rem helvetica, sans-serif;
+}
+main > header p {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+main > header span {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateY(-50%);
+  width: 13px;
+  height: 13px;
+  background-color: black;
+  border-radius: 50%;
+}
+main > header span::before,
+main > header span::after {
+  content: '';
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border: 1px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main > header span::before {
+  left: -18px;
+}
+main > header span::after {
+  left: 18px;
+}
 footer {
   z-index: 0;
   width: 100%;
   background-color: black;
-  font: 0.75rem helvetica,sans-serif;
+  font: 0.75rem helvetica, sans-serif;
   color: var(--light);
   display: flex;
   justify-content: center;
   padding: 3rem 8%;
-
-  & header {
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    color: var(--primary);
-    padding: 0 2rem;
-
-    & h2 {
-      position: relative;
-      text-transform: uppercase;
-
-      &::before {
-        content: '';
-        position: absolute;
-        transform: translate(-0.5rem,-0.25rem);
-        width: 1rem;
-        height: 1rem;
-        background-color: var(--accent);
-        z-index: -1;
-      }
-    }
-
-    & p {
-      font-style: italic;
-      line-height: 1.8;
-      color: var(--light);
-    }
-
-    & .icon {
-      font-size: 1.1rem;
-      padding: 0.25rem 0.5rem 0.25rem 0;
-      cursor: pointer;
-      color: var(--accent);
-
-      &:hover {
-        animation: pulse 0.5s;
-        color: var(--light);
-      }
-    }
-  }
-
-  & aside {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 3rem;
-    padding: 0 2rem;
-
-    & ul {
-      list-style-type: none;
-
-      & li {
-        padding: 0.5rem 0;
-        cursor: pointer;
-        
-        &:hover:not(:first-of-type) {
-          animation: pulse 0.5s;
-          color: var(--accent);
-        }
-      }
-
-      & li:first-of-type {
-        color: var(--primary);
-        cursor: default;
-      }
-    }
-  }
+}
+footer header {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--primary);
+  padding: 0 2rem;
+}
+footer header h2 {
+  position: relative;
+  text-transform: uppercase;
+}
+footer header h2::before {
+  content: '';
+  position: absolute;
+  transform: translate(-0.5rem,-0.25rem);
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--accent);
+  z-index: -1;
+}
+footer header p {
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--light);
+}
+footer header .icon {
+  font-size: 1.1rem;
+  padding: 0.25rem 0.5rem 0.25rem 0;
+  cursor: pointer;
+  color: var(--accent);
+}
+footer header .icon:hover {
+  animation: pulse 0.5s;
+  color: var(--light);
+}
+footer aside {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 0 2rem;
+}
+footer aside ul {
+  list-style-type: none;
+}
+footer aside ul li {
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+footer aside ul li:hover:not(:first-of-type) {
+  animation: pulse 0.5s;
+  color: var(--accent);
+}
+footer aside ul li:first-of-type {
+  color: var(--primary);
+  cursor: default;
 }
 
 @keyframes pulse {
@@ -335,4 +316,28 @@ footer {
     flex-wrap: wrap;
     gap: 1rem;
   }
+}
+
+.count-up{
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+
+}
+
+.count-up{
+  text-align: center;
+  margin: 0px;
+}
+
+
+.countup-label{
+
+  color: black;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900;
 }
