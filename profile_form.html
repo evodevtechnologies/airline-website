@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-image: url('images/sign_up_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #00468b;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="file"],
+        select {
+            width: calc(100% - 10px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            float: left;
+        }
+
+        select {
+            width: auto;
+            padding: 10px;
+        }
+
+        .half-width {
+            width: calc(50% - 5px);
+            float: left;
+            margin-right: 10px;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .profile-pic-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 120px;
+            border: 2px solid #00468b;
+            border-radius: 5px;
+            margin-right: 20px;
+            overflow: hidden;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 3px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #00468b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00315a;
+        }
+
+        .inline-group {
+            display: flex;
+        }
+
+        .inline-group label {
+            margin-right: 10px;
+        }
+
+        .inline-group input[type="text"],
+        .inline-group select {
+            width: auto;
+            margin-right: 10px;
+            float: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Information</h1>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="inline-group">
+                    <label for="title">Title:</label>
+                    <select id="title" name="title">
+                        <option value="Mr.">Mr.</option>
+                        <option value="Mrs.">Mrs.</option>
+                        <option value="Miss">Miss</option>
+                    </select>
+                </div>
+                <div class="inline-group">
+                    <label for="fname">First Name:</label>
+                    <input type="text" id="fname" name="fname" required>
+                </div>
+                <div class="inline-group">
+                    <label for="lname">Last Name:</label>
+                    <input type="text" id="lname" name="lname" required>
+                </div>
+            </div>
+            <div class="form-group clearfix">
+                <div class="half-width">
+                    <label for="phone">Phone Number:</label>
+                    <select id="country-code" name="country-code">
+                        <option value="+1">+1 (USA)</option>
+                        <option value="+91">+91 (India)</option>
+                    </select>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="half-width">
+                    <label for="address">Address:</label>
+                    <input type="text" id="house-number" name="house-number" placeholder="House No." required>
+                    <input type="text" id="street-name" name="street-name" placeholder="Street Name" required>
+                    <input type="text" id="locality" name="locality" placeholder="Locality Name" required>
+                    <input type="text" id="city" name="city" placeholder="City" required>
+                    <input type="text" id="state" name="state" placeholder="State" required>
+                    <input type="text" id="country" name="country" placeholder="Country" required>
+                    <input type="text" id="pincode" name="pincode" placeholder="Pincode" required>
+                </div>
+            </div>
+            <div class="form-group clearfix">
+                <label for="blood_group">Blood Group:</label>
+                <input type="text" id="blood_group" name="blood_group">
+            </div>
+            <div class="form-group">
+                <label for="profile_pic">Profile Picture:</label>
+                <div class="profile-pic-container">
+                    <div class="profile-pic" id="profile-pic-preview">
+                        <img src="placeholder.jpg" alt="Profile Picture">
+                    </div>
+                    <input type="file" id="profile_pic" name="profile_pic" onchange="previewProfilePic()">
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function previewProfilePic() {
+            const input = document.getElementById('profile_pic');
+            const preview = document.getElementById('profile-pic-preview');
+            const file = input.files[0];
+            const reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.innerHTML = `<img src="${reader.result}" alt="Profile Picture">`;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
