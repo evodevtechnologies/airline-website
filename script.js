@@ -7,12 +7,6 @@ const countOptions = {
   duration: 1.5,
 }
 
-function isOnScreen(element) {
-  const curTop = element.offsetTop;
-  const screenHeight = window.innerHeight;
-  return !(curTop > screenHeight);
-}
-
 const count1 = new CountUp('MyNumber1', 0, 650000, 0, 5, countOptions);
 const count2 = new CountUp('MyNumber2', 0, 135000, 0, 5, countOptions);
 const count3 = new CountUp('MyNumber3', 0, 86, 0, 5, countOptions);
@@ -47,6 +41,21 @@ window.addEventListener('scroll', () => {
   document.getElementById("card-holder2").style.transform = "translateX(-" + document.getElementById("viewport2").offsetTop + "px)";
 
   let { scrollY } = window;
-  heading.style.top = "calc( 50% - " + (0.3 * scrollY) + "px )";
+  heading.style.top = "calc( 50% - " + (0.65 * scrollY) + "px )";
   parallax.style.top = "calc( 50% - " + (0.5 * scrollY) + "px )";
 });
+
+window.setTimeout(loadImages, 5000);
+const hero = document.querySelector(".hero");
+let heroIndex = 1;
+function loadImages() {
+
+  hero.style.backgroundImage = "url(images/hero-" + heroIndex + ".jpg)";
+  heroIndex++;
+  if (heroIndex > 3) {
+    heroIndex = 1;
+  }
+  window.setTimeout(loadImages, 5000);
+
+
+}
