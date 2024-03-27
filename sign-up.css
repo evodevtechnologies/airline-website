@@ -1,11 +1,11 @@
 body{
     margin:0;
     background-image: url('images/sign_up_bg.png');
-            background-size: cover; 
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            overflow: hidden;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
 }
 
 #logo{
@@ -26,10 +26,10 @@ body{
             border: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
-#small-glass{
+#small-glass {
     position: fixed;
-    top: 75%; 
-    left: 8%; 
+    top: 75%;
+    left: 8%;
     height: 150px;
     width: 300px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -38,12 +38,28 @@ body{
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    animation: slideInFromLeft 0.7s ease forwards;
+
 }
-@media (max-width: 1196px) {
-    #big-glass {
-        left: calc(50% - 258.5px);
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
     }
 }
+
+
+#sign-in {
+    position: relative;
+    top:0;
+    left:0;
+    font-family: 'Arkhip', sans-serif;
+    color: white;
+    font-size: 30px;
+}
+
 h1{
     position: absolute;
     top:100px;

@@ -26,5 +26,10 @@ function togglePasswordVisibility() {
 
 document.addEventListener('selectstart',(e) =>{
     e.preventDefault();
-})
+});
 
+function signIn() {
+    // Perform email and password validation here
+    // If validation succeeds, redirect to otp_auth.html
+    window.location.href = "otp_auth.html";
+}
