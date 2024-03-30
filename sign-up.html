@@ -13,18 +13,33 @@
         <h1>SIGN UP</h1>
         <form>
             <div class="email-field">
-                <input type="email" class="email-input" id="email" placeholder=" " required>
+                <input type="email" class="email-input" id="email" placeholder=" " required autofocus>
                 <label for="email" class="email-label"><i>Enter your email</i></label>
+                <img src="images/alert.png" id="alert-icon" class="alert-icon" alt="Alert" style="width: 20px; height: 20px; margin-left: 5px; display: none;" title="Invalid email">
             </div>
+            
             <div class="password-field">
                 <input type="password" class="password-input" id="password" placeholder=" " required>
                 <label for="password" class="password-label"><i>Enter your password</i></label>
+                <div id="password-strength-popup" class="password-strength-popup">Password must contain at least 8 characters and 1 uppercase letter.</div>
             </div>
-            <div class="confirm-password-field">
-                <input type="password" class="confirm-password-input" id="confirmPassword" placeholder=" " required>
-                <label for="confirmPassword" class="confirm-password-label"><i>Confirm your password</i></label>
+            
+            <div class="password-field">
+                <input type="password" class="password-input" id="password" placeholder=" " required>
+                <label for="password" class="password-label"><i>Enter your password</i></label>
+                <div id="password-strength-popup" class="password-strength-popup">
+                    <ul>
+                        <li id="min-length">Minimum 8 characters</li>
+                        <li id="uppercase">Minimum 1 Uppercase character</li>
+                        <li id="lowercase">Minimum 1 Lowercase character</li>
+                        <li id="number">Minimum 1 Number</li>
+                        <li id="special-char">Minimum 1 special character</li>
+                    </ul>
+                </div>
             </div>
-            <input type="submit" value="Sign up" id="sign-in">
+            
+            <input type="submit" value="Sign up" id="sign-up-button" onclick="redirectToOTPAuth()">
+
             <div id="line">
                 <div id="line_1"></div>
                 <div id="line_2"></div>
@@ -33,11 +48,11 @@
             
             <a id="sign-in-google" href="sign-up.html">
                 <img src="images/google_logo.png" alt="Google Logo">
-                <span>Sign In With Google</span>
+                <span>Sign Up With Google</span>
             </a>
             <a id="sign-in-apple" href="sign-up.html">
                 <img src="images/apple_logo.png" alt="Apple Logo">
-                <span>Sign In With Apple</span>
+                <span>Sign Up With Apple</span>
             </a>
             <p id="tnc">By continuing, you agree to <b>AVIAS’</b><br>
                 <a href="#" id="tos"><b>Terms of Service</b></a> & <a href="#" id="tos"><b>Privacy Policy</b></a></p>
