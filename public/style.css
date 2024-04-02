@@ -316,7 +316,7 @@ h1 {
 }
 
 .horizontal-card {
-  white-space: nowrap;
+  white-space: nowarp;
   height: 100%;
   width: 80vw;
 }
@@ -330,6 +330,13 @@ h1 {
   height: 80%;
   object-fit: cover;
   pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border-radius: 20px
 }
 
 
@@ -371,14 +378,14 @@ h1 {
     
     /* max-width: 1200px; */
     position: relative;
-    width: 80vw;
+    width: 100vw;
     height: fit-content;
-    border: 50px solid transparent;
     margin: 20px auto;
     margin-top: -0px;
     background-color: transparent;
     border-radius: 10px;
     box-shadow: -42px 53px 69px -81px rgba(0,0,0,0.18);
+    border-radius:20px 20px 0 0 ;
   }
 
   .tab {
@@ -387,19 +394,25 @@ h1 {
 
   .tab button {
     flex: 1;
-    background-color: var(--base-color);
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 14px 16px; /* Adjust padding as needed */
     transition: all 0.3s;
-    border-radius: 30px 10px 0 0;
-    /* border-bottom: 3px solid black; */
-  }
+    transform: skewX(-20deg);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    /* border: 3px solid black; */
+    border-top: transparent;
+}
+
 
   .tab button:hover {
-    background-color: #ccc;
+    background-color: white;
     border: transparent;
+
   }
 
   .tab button.active {
@@ -409,20 +422,36 @@ h1 {
     color: var(--base-color);
     background-color: var(--dark-purple);
     border-bottom: transparent;
+    border-radius: 30px 10px 0 0;
+    transform: skewX(-20deg);
   }
 
   .tabcontent {
     display: none;
     padding: 20px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     border-radius: 0 0 10px 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     /* border: 3px solid black; */
     border-top: transparent;
 
   }
+
+  .tab-container .tab {
+    display: flex;
+    justify-content: center;
+}
+
+.tab-container .tab button {
+    flex: 1;
+    max-width: 300px;
+}
+
+
+
+
 
   /* #Endregion */
 
