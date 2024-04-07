@@ -1,0 +1,57 @@
+DROP database testDB;
+
+CREATE DATABASE testDB;
+SHOW DATABASES;
+
+USE testDB;
+CREATE TABLE UserDetails 
+(
+UID INT not null AUTO_INCREMENT,
+FirstName VARCHAR(50),
+LastName VARCHAR(50),
+Email VARCHAR(50) UNIQUE,
+Pass VARCHAR(255),
+PhoneNumber INT,
+CONSTRAINT UID_PK PRIMARY KEY (UID)
+);
+
+SHOW TABLES;
+
+CREATE TABLE Flight (
+ FLID INT NOT NULL AUTO_INCREMENT,
+ Src VARCHAR(5) NOT NULL,
+ Dst VARCHAR(5) NOT NULL ,
+ Departure_Date_Time DateTime,-- CONSTRAINT DateCheck CHECK (Departure_Date_Time< Arrival_Date_Time),
+ Arrival_Date_time DateTime,
+ Airplane_Type VARCHAR(100),
+ SeatsInA INT NOT NULL,
+ SeatsInB INT NOT NULL,
+ SeatsInC INT NOT NULL,
+ CONSTRAINT FLID_PK PRIMARY KEY (FLID),
+ CONSTRAINT DateCheck_FD CHECK (Departure_Date_Time< Arrival_Date_Time),
+ CONSTRAINT Airport_chk CHECK (Src != Dst)
+ );
+ 
+ CREATE TABLE Booking(
+	BKGID INT NOT NULL AUTO_INCREMENT,
+    Seats INT NOT NULL,
+    UID INT NOT NULL,
+    Cost INT NOT NULL,
+    Cancelled BOOL NOT NULL,
+    PRIMARY KEY (BKGID),
+    FOREIGN KEY (UID) REFERENCES UserDetails(UID)
+ );
+ 
+ CREATE TABLE Reservation (
+	RID INT NOT NULL AUTO_INCREMENT,
+    Passenger VARCHAR(50) NOT NULL,
+    SeatNo INT NOT NULL,
+    Class VARCHAR(20) NOT NULL,
+    FLID INT NOT NULL,
+    BKGID INT NOT NULL,
+    PRIMARY KEY (RID),
+	FOREIGN KEY (FLID) REFERENCES Flight(FLID),
+    FOREIGN KEY (BKGID) REFERENCES Booking(BKGID)
+ );
+ 
+ 
