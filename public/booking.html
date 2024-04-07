@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Booking Form</title>
+<link rel="stylesheet" type="text/css" href="booking.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+</head>
+<body>
+
+  <section class="button-section">
+    <div class="tab-container">
+        <div class="tab">
+          <button class="tablinks" onclick="openTab(event, 'bookFlight')">Book a flight</button>
+          <button class="tablinks" onclick="openTab(event, 'myBookings')">My Bookings</button>
+          <button class="tablinks" onclick="openTab(event, 'flightStatus')">Flight Status</button>
+          <button class="tablinks" onclick="openTab(event, 'flightSchedule')">Flight Schedule</button>
+        </div>
+      
+        <div id="bookFlight" class="tabcontent">
+          <div class="container">
+            <form id="bookingForm">
+              <div class="form-row">
+                <div class="form-section">
+                  <label for="fromDestination">From:</label>
+                  <select id="fromDestination" name="fromDestination">
+                    <option value="New York">New York</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="London">London</option>
+                    <option value="Paris">Paris</option>
+                    <!-- Add more options as needed -->
+                  </select>
+                </div>
+                <div class="form-section">
+                  <label for="toDestination">To:</label>
+                  <select id="toDestination" name="toDestination">
+                    <option value="New York">New York</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="London">London</option>
+                    <option value="Paris">Paris</option>
+                    <!-- Add more options as needed -->
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-section">
+                  <label for="departureDate">Departure Date:</label>
+                  <input type="text" id="departureDate" name="departureDate" class="datepicker" readonly>
+                </div>
+                <div class="form-section">
+                  <label for="returnDate">Return Date:</label>
+                  <input type="text" id="returnDate" name="returnDate" class="datepicker" readonly>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-section">
+                  <div class="passenger-count">
+                    <button type="button" class="toggle-passenger-details" id="passengerCount">1 Adult</button>
+                    <div class="passenger-details">
+                      <div>
+                        <label for="adults">Adults:</label>
+                        <div class="number-input">
+                          <button type="button" onclick="decrement('adults')">-</button>
+                          <input type="text" id="adults" name="adults" value="1" readonly>
+                          <button type="button" onclick="increment('adults')">+</button>
+                        </div>
+                      </div>
+          
+                      <div>
+                        <label for="children">Children:</label>
+                        <div class="number-input">
+                          <button type="button" onclick="decrement('children')">-</button>
+                          <input type="text" id="children" name="children" value="0" readonly>
+                          <button type="button" onclick="increment('children')">+</button>
+                        </div>
+                      </div>
+          
+                      <div>
+                        <label for="infants">Infants:</label>
+                        <div class="number-input">
+                          <button type="button" onclick="decrement('infants')">-</button>
+                          <input type="text" id="infants" name="infants" value="0" readonly>
+                          <button type="button" onclick="increment('infants')">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="submit">Search Flights</button>
+            </form>
+          </div>
+        </div>
+      
+        <div id="myBookings" class="tabcontent">
+          <!-- Content for My Bookings tab -->
+        </div>
+      
+        <div id="flightStatus" class="tabcontent">
+          <!-- Content for Flight Status tab -->
+        </div>
+      
+        <div id="flightSchedule" class="tabcontent">
+          <!-- Content for Flight Schedule tab -->
+        </div>
+      </div>
+    
+    
+</section>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    flatpickr("#departureDate", {
+      dateFormat: "d-m-Y",
+      minDate: "today",
+    });
+
+    flatpickr("#returnDate", {
+      dateFormat: "d-m-Y",
+      minDate: "today",
+    });
+
+    document.getElementById('passengerCount').addEventListener('click', function() {
+      document.querySelector('.passenger-details').classList.toggle('active');
+    });
+
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+      const formObject = {};
+      formData.forEach((value, key) => {
+        formObject[key] = value;
+      });
+      console.log(formObject);
+    });
+  });
+
+  function increment(field) {
+    const input = document.getElementById(field);
+    input.value = parseInt(input.value) + 1;
+    updateTotalPassengers();
+  }
+
+  function decrement(field) {
+    const input = document.getElementById(field);
+    const value = parseInt(input.value) - 1;
+    input.value = value >= 0 ? value : 0;
+    updateTotalPassengers();
+  }
+
+  function updateTotalPassengers() {
+    const adults = parseInt(document.getElementById('adults').value);
+    const children = parseInt(document.getElementById('children').value);
+    // const infants = parseInt(document.getElementById('infants').value);
+    const total = adults + children;
+    document.getElementById('passengerCount').textContent = total + " Passenger" + (total !== 1 ? "s" : "");
+  }
+</script>
+
+</body>
+</html>
