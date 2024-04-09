@@ -1,178 +1,178 @@
+:root {
+  --base-color: white;
+  --accent: gold;
+  --purple: #892680;
+  --dark-purple: #792172;
+}
 
-body{
-    background-color: #f0f0f0;
-  }
-  
-    :root {
-    --base-color: white;
-    --accent: gold;
-    --purple: #892680;
-    --dark-purple: #792172;
-  }
-  
-   .tab-container {
-      
-      /* max-width: 1200px; */
-      position: relative;
-      width: 80vw;
-      height: fit-content;
-      border: 50px solid transparent;
-      margin: 20px auto;
-      margin-top: -0px;
-      background-color: transparent;
-    }
-  
-    .tab {
-      display: flex;
-    }
-  
-    .tab button {
-      flex: 1;
-      background-color: var(--base-color);
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      transition: all 0.3s;
-      border-radius: 30px 10px 0 0;
-      /* border-bottom: 3px solid black; */
-    }
-  
-    .tab button:hover {
-      background-color: #ccc;
-      border: transparent;
-    }
-  
-    .tab button.active {
-      /* border-top: 3px solid black;
-      border-left: 3px solid black;
-      border-right: 3px solid black; */
-      color: var(--base-color);
-      background-color: var(--dark-purple);
-      border-bottom: transparent;
-    }
-  
-    .tabcontent {
-      display: none;
-      padding: 20px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-      border-radius: 0 0 10px 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      /* border: 3px solid black; */
-      border-top: transparent;
-  
-    }
-  
-    /* #Endregion */
-  
-    .form-row {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-  
-    .form-section {
-      flex: 1 1 45%;
-      margin-right: 20px;
-    }
-  
-    .form-section:last-child {
-      margin-right: 0;
-    }
-  
-  
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-  
-    label {
-      margin-bottom: 6px;
-      color: black;
-    }
-  
-    select,
-    input {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 12px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-  
-    .number-input {
-      display: flex;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-  
-    .number-input button {
-      max-width: 200px;
-      padding: 6px 10px;
-      border: none;
-      background-color: var(--dark-purple);
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      font-family: 'SF Pro', 'Arial', sans-serif;
-    }
-  
-    .number-input button:hover {
-      background-color: var(--purple);
-    }
-  
-    .number-input input {
-      flex: 1;
-      text-align: center;
-      border: 1px solid #ccc;
-      border-left: none;
-      border-right: none;
-    }
-  
-    button[type="submit"] {
-      padding: 10px;
-      border: none;
-      background-color: var(--purple);
-      color: var(--base-color);
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      width: 100%;
-    }
-  
-    button[type="submit"]:hover {
-      background-color: var(--dark-purple);
-    }
-  
-    .passenger-details {
-      display: none;
-      margin-top: 12px;
-    }
-  
-    .toggle-passenger-details {
-      padding: 10px;
-      border: none;
-      background-color: var(--purple);
-      color: #fff;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      text-align: center;
-      width: 100%;
-    }
-  
-    .toggle-passenger-details:hover {
-      background-color: var(--dark-purple);
-    }
-  
-    .passenger-details.active {
-      display: block;
-    }
-  
-    .button-section{
-      background-color: transparent;
-      height: fit-content;
-      margin-bottom: -20px;
-    }
+body {
+  background-color: #f0f0f0;
+}
+
+.tab-container {
+  position: relative;
+  width: 80vw;
+  height: fit-content;
+  border: 50px solid transparent;
+  margin: 20px auto;
+  margin-top: -0px;
+  background-color: transparent;
+}
+
+.tab-links-container {
+  display: flex;
+}
+
+.tab-link {
+  flex: 1;
+  background-color: var(--base-color);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: all 0.3s;
+  border-radius: 30px 10px 0 0;
+}
+
+.tab-link:hover {
+  background-color: #ccc;
+  border: transparent;
+}
+
+.tab-link.active {
+  color: var(--base-color);
+  background-color: var(--dark-purple);
+  border-bottom: transparent;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-top: transparent;
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.form-row {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex:1;
+  padding: 8px;
+}
+
+.button-section select,
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+
+}
+
+.swap-button-section{
+  width: 20%;
+
+}
+.swap-button {
+  width: 20%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: var(--purple);
+  border: none;
+  color: white;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.passenger-number-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.passenger-number-input button {
+  max-width: 200px;
+  padding: 6px 10px;
+  border: none;
+  background-color: var(--dark-purple);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'SF Pro', 'Arial', sans-serif;
+}
+
+.passenger-number-input button:hover {
+  background-color: var(--purple);
+}
+
+.passenger-number-input input {
+  flex: 1;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-right: none;
+}
+
+#submit-booking-details {
+  padding: 10px;
+  border: none;
+  background-color: var(--purple);
+  color: var(--base-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.submit-booking-details:hover {
+  background-color: var(--dark-purple);
+}
+
+.passenger-details {
+  display: none;
+  margin-top: 12px;
+}
+
+.toggle-passenger-details {
+  padding: 10px;
+  border: none;
+  background-color: var(--purple);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  width: 100%;
+}
+
+.toggle-passenger-details:hover {
+  background-color: var(--dark-purple);
+}
+
+.passenger-details.active {
+  display: block;
+}
+
+.button-section {
+  background-color: transparent;
+  height: fit-content;
+  margin-bottom: -20px;
+}

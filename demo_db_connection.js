@@ -24,6 +24,6 @@ con.connect(function(err) {
 }
 
 executeQuery("USE testDB;");
-executeQuery("SHOW TABLES;");
 // executeQuery("INSERT INTO userdetails (firstname, lastname, email, pass, phonenumber) VALUES ('Nishok', 'Kumar', 'ddk@gmail.com', '1234', '1234567890');");
-executeQuery("SELECT * FROM userdetails;");
+
+exports.executeQuery = executeQuery;

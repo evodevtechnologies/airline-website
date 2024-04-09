@@ -2,290 +2,275 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="card.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-    
-    <script src="countUp.js"></script>
-    <script src="script.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Booking Form</title>
+  <link rel="stylesheet" type="text/css" href="booking.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="jsonscript.js"></script>
 </head>
 
 <body>
-    <main>
 
-        <marquee bgcolor="black" color="gold">
-            <ol class="offers">
-                <li>content offer</li>
-                <li>content offer</li>
-                <li>content offer</li>
-                <li>content offer</li>
-            </ol>
-        </marquee>
 
-        <div class="top-bar">
-            <div class="logo-container">
-            <img src="images/logo.png" alt="logo" class="logo">
-</div>
-<div class="page-nav">
-            <nav>
-                <a href="#" class="hover-line">Booking</a>
-                <a href="#" class="hover-line">Services</a>
-                <a href="#" class="hover-line">About us</a>
-                <a href="#" class="hover-line">Contact Us</a>
-                <div class="animation start-hom"></div>
-            </nav>
+
+  <div class="cred-section">
+
+    <button class="button-1" role="button" onclick="window.location.href = 'credentials/sign-in.html';">
+      Sign In
+    </button>
+    <button class="button-1" role="button" onclick="window.location.href = 'credentials/sign-up.html';">
+      Sign Up
+    </button>
+
+  </div>
+
+
+  <section class="button-section">
+
+    <div class="tab-container">
+
+      <div class="tab-links-container">
+        <button class="tab-link" onclick="openTab(event, 'book-flight')">Book a flight</button>
+        <button class="tab-link" onclick="openTab(event, 'my-bookings')">My Bookings</button>
+        <button class="tab-link" onclick="openTab(event, 'flight-status')">Flight Status</button>
+        <button class="tab-link" onclick="openTab(event, 'flight-schedule')">Flight Schedule</button>
+      </div>
+
+      <!-- Tab 1 -->
+      <div id="book-flight" class="tab-content">
+        <form id="booking-form" method="post">
+
+          <div class="form-row">
+
+            <div class="form-section destination">
+              <label for="from-destination">From:</label>
+              <select id="from-destination" name="from-destination">
+
+                <option value="New York">New York</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="London">London</option>
+                <option value="Paris">Paris</option>
+                <!-- Add more options as needed -->
+
+              </select>
             </div>
 
-            <div class="cred-section">
 
-                <button class="button-1" role="button" onclick="window.location.href = 'credentials/sign-in.html';">Sign
-                    In</button>
-                <button class="button-1" role="button" onclick="window.location.href = 'credentials/sign-up.html';">Sign
-                    Up</button>
+            <div class="form-section" class="swap-button-section">
+              <button id="swap-destinations-button" class="swap-button">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" fill="#FFFFFF" height="90%" width="90%" version="1.1"
+                  id="Layer_1" viewBox="0 0 512.04 512.04" xml:space="preserve">
+                  <g>
+                    <g>
+                      <path
+                        d="M508.933,248.353L402.267,141.687c-4.267-4.053-10.987-3.947-15.04,0.213c-3.947,4.16-3.947,10.667,0,14.827    l88.427,88.427H36.4l88.427-88.427c4.053-4.267,3.947-10.987-0.213-15.04c-4.16-3.947-10.667-3.947-14.827,0L3.12,248.353    c-4.16,4.16-4.16,10.88,0,15.04L109.787,370.06c4.267,4.053,10.987,3.947,15.04-0.213c3.947-4.16,3.947-10.667,0-14.827    L36.4,266.593h439.147L387.12,355.02c-4.267,4.053-4.373,10.88-0.213,15.04c4.053,4.267,10.88,4.373,15.04,0.213    c0.107-0.107,0.213-0.213,0.213-0.213l106.667-106.667C513.093,259.34,513.093,252.513,508.933,248.353z" stroke="white" stroke-width="20"/>
+                    </g>
+                  </g>
+                </svg>
+              </button>
             </div>
-        </div>
 
 
-        <!-- #region header -->
-        <div class="hero"></div>
-        <header>
-            <div class=header-left>
-                <div class="parallax">
-                    <div class="heading">
-                        <h1> AVIAS </h1>
+            <div class="form-section destination">
+              <label for="to-destination">To:</label>
+              <select id="to-destination" name="to-destination">
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="New York">New York</option>
+                <option value="London">London</option>
+                <option value="Paris">Paris</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+
+          </div>
+
+
+
+          <div class="form-row">
+
+            <div class="form-section">
+              <label for="departure-date">Departure Date:</label>
+              <input type="text" id="departure-date" name="departure-date" class="date-picker" readonly>
+            </div>
+
+
+            <div class="form-section">
+              <label for="return-date">Return Date:</label>
+              <input type="text" id="return-date" name="return-date" class="date-picker" readonly>
+            </div>
+
+          </div>
+
+
+
+          <div class="form-row">
+
+            <div class="form-section">
+
+
+              <div class="passenger-count">
+
+                <button type="button" class="toggle-passenger-details" id="passenger-count">1 Adult</button>
+
+                <div class="passenger-details">
+                  <div>
+                    <label for="adults">Adults:</label>
+                    <div class="passenger-number-input" name="adults">
+                      <button type="button" onclick="decrement('adults')">-</button>
+                      <input type="text" id="adults" name="adults" value="1" readonly>
+                      <button type="button" onclick="increment('adults')">+</button>
                     </div>
-                </div>
-            </div>
-
-            <div class="header-right">
-                <div class="header-glass">
-                    </div>
-                </div>
-
-        </header>
-
-        <!-- #endregion -->
-
-        <!-- <section class="main">
-
-        </section> -->
-
-
-        <section class="button-section">
-            <div class="tab-container">
-                <div class="tab">
-                  <button class="tablinks" onclick="openTab(event, 'bookFlight')">Book a flight</button>
-                  <button class="tablinks" onclick="openTab(event, 'myBookings')">My Bookings</button>
-                  <button class="tablinks" onclick="openTab(event, 'flightStatus')">Flight Status</button>
-                  <button class="tablinks" onclick="openTab(event, 'flightSchedule')">Flight Schedule</button>
-                </div>
-              
-                <div id="bookFlight" class="tabcontent">
-                  <div class="container">
-                    <form id="bookingForm">
-                      <div class="form-row">
-                        <div class="form-section">
-                          <label for="fromDestination">From:</label>
-                          <select id="fromDestination" name="fromDestination">
-                            <option value="New York">New York</option>
-                            <option value="Los Angeles">Los Angeles</option>
-                            <option value="London">London</option>
-                            <option value="Paris">Paris</option>
-                            <!-- Add more options as needed -->
-                          </select>
-                        </div>
-                        <div class="form-section">
-                          <label for="toDestination">To:</label>
-                          <select id="toDestination" name="toDestination">
-                            <option value="New York">New York</option>
-                            <option value="Los Angeles">Los Angeles</option>
-                            <option value="London">London</option>
-                            <option value="Paris">Paris</option>
-                            <!-- Add more options as needed -->
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-row">
-                        <div class="form-section">
-                          <label for="departureDate">Departure Date:</label>
-                          <input type="text" id="departureDate" name="departureDate" class="datepicker" readonly>
-                        </div>
-                        <div class="form-section">
-                          <label for="returnDate">Return Date:</label>
-                          <input type="text" id="returnDate" name="returnDate" class="datepicker" readonly>
-                        </div>
-                      </div>
-                      <div class="form-row">
-                        <div class="form-section">
-                          <div class="passenger-count">
-                            <button type="button" class="toggle-passenger-details" id="passengerCount">1 Adult</button>
-                            <div class="passenger-details">
-                              <div>
-                                <label for="adults">Adults:</label>
-                                <div class="number-input">
-                                  <button type="button" onclick="decrement('adults')">-</button>
-                                  <input type="text" id="adults" name="adults" value="1" readonly>
-                                  <button type="button" onclick="increment('adults')">+</button>
-                                </div>
-                              </div>
-                  
-                              <div>
-                                <label for="children">Children:</label>
-                                <div class="number-input">
-                                  <button type="button" onclick="decrement('children')">-</button>
-                                  <input type="text" id="children" name="children" value="0" readonly>
-                                  <button type="button" onclick="increment('children')">+</button>
-                                </div>
-                              </div>
-                  
-                              <div>
-                                <label for="infants">Infants:</label>
-                                <div class="number-input">
-                                  <button type="button" onclick="decrement('infants')">-</button>
-                                  <input type="text" id="infants" name="infants" value="0" readonly>
-                                  <button type="button" onclick="increment('infants')">+</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <button type="submit">Search Flights</button>
-                    </form>
                   </div>
-                </div>
-              
-                <div id="myBookings" class="tabcontent">
-                  <!-- Content for My Bookings tab -->
-                </div>
-              
-                <div id="flightStatus" class="tabcontent">
-                  <!-- Content for Flight Status tab -->
-                </div>
-              
-                <div id="flightSchedule" class="tabcontent">
-                  <!-- Content for Flight Schedule tab -->
+
+                  <div>
+                    <label for="children">Children:</label>
+                    <div class="passenger-number-input" name="children">
+                      <button type="button" onclick="decrement('children')">-</button>
+                      <input type="text" id="children" name="children" value="0" readonly>
+                      <button type="button" onclick="increment('children')">+</button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="infants">Infants:</label>
+                    <div class="passenger-number-input" name="infants">
+                      <button type="button" onclick="decrement('infants')">-</button>
+                      <input type="text" id="infants" name="infants" value="0" readonly>
+                      <button type="button" onclick="increment('infants')">+</button>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-            
-            
-        </section>
 
-        <section class="count-up-container" id="count-up-container">
-            <div class="countup count-one">
-                <h1 id='MyNumber1'>0</h1>
-                <h2 class="countup-label">Passengers</h2>
+
             </div>
-            <div class="countup count-one">
-                <h1 id='MyNumber2'>0</h1>
-                <h2 class="countup-label">Miles</h2>
-            </div>
-            <div class="countup count-one">
-                <h1 id='MyNumber3'>0</h1>
-                <h2 class="countup-label">Countries</h2>
-            </div>
-        </section>
 
-        <h1 class="scroll-heading">Our Fleet</h1>
-
-        <section class="horizontal-scroll" id="horizontal-scroll">
-            <div class="viewport" id="viewport">
-                <div class="card-holder" id="card-holder">
-                    <div class="horizontal-card">
-                        <img src="images/rame.png" alt="pic">
-                        <h3 style="color: #892680;">Slide Heading</h3>
-                    </div>
-                    <div class="horizontal-card">
-                        <img src="images/rame.png" alt="pic">
-                        <h3 style="color: #892680;">Slide Heading</h3>
-                    </div>
-                    <div class="horizontal-card">
-                        <img src="images/rame.png" alt="pic">
-                        <h3 style="color: #892680;">Slide Heading</h3>
-                    </div>
-                    <div class="horizontal-card">
-                        <img src="images/rame.png" alt="pic">
-                        <h3 style="color: #892680;">Slide Heading</h3>
-                    </div>
-                    <div class="horizontal-card">
-                        <img src="images/rame.png" alt="pic">
-                        <h3 style="color: #892680;">Slide Heading</h3>
-                    </div>
-                </div>
-            </div>
-    </section>
-
-    <h1 class="scroll-heading">Our Planes</h1>
-
-    <section class="horizontal-scroll" id="horizontal-scroll2">
-        <div class="viewport" id="viewport2">
-            <div class="card-holder" id="card-holder2">
-                <div class="horizontal-card">
-                    <img src="images/rame.png" alt="pic">
-                    <h3 style="color: #892680;">Slide Heading</h3>
-                </div>
-                <div class="horizontal-card">
-                    <img src="images/rame.png" alt="pic">
-                    <h3 style="color: #892680;">Slide Heading</h3>
-                </div>
-                <div class="horizontal-card">
-                    <img src="images/rame.png" alt="pic">
-                    <h3 style="color: #892680;">Slide Heading</h3>
-                </div>
-                <div class="horizontal-card">
-                    <img src="images/rame.png" alt="pic">
-                    <h3 style="color: #892680;">Slide Heading</h3>
-                </div>
-                <div class="horizontal-card">
-                    <img src="images/rame.png" alt="pic">
-                    <h3 style="color: #892680;">Slide Heading</h3>
-                </div>
-            </div>
-        </div>
-</section>
-</main>
+          </div>
 
 
-<div class="card-container">
-    <div class="modern-card">
-        <figure class="card__thumb">
-            <img src="https://source.unsplash.com/3THn0EN_Ydo/300x510" alt="Picture by David Monje" class="card__image">
-            <figcaption class="card__caption">
-                <h2 class="card__title">NASA Has Found Hundreds Of Potential New Planets</h2>
-                <p class="card__snippet">NASA released a list of 219 new “planet candidates” discovered by the Kepler space telescope, 10 of which are similar to Earth’s size and may be habitable by other life forms.</p>
-                <a href="" class="card__button">Read more</a>
-            </figcaption>
-        </figure>
+
+          <button type="submit" id="submit-booking-details">Search Flights</button>
+
+        </form>
+      </div>
+
+      <!-- Tab 2 -->
+      <div id="my-bookings" class="tab-content">
+        <!-- Content for My Bookings tab -->
+      </div>
+
+      <!-- Tab 3 -->
+      <div id="flight-status" class="tab-content">
+        <!-- Content for Flight Status tab -->
+      </div>
+
+      <!-- Tab 4 -->
+      <div id="flight-schedule" class="tab-content">
+        <!-- Content for Flight Schedule tab -->
+      </div>
+
     </div>
 
-    <div class="modern-card">
-        <figure class="card__thumb">
-            <img src="https://source.unsplash.com/71u2fOofI-U/300x510" alt="Picture by Nathan Dumlao" class="card__image">
-            <figcaption class="card__caption">
-                <h2 class="card__title">This Is Your Body And Brain On Coffee</h2>
-                <p class="card__snippet">Drinking more caffeine during the coronavirus lockdown? Here's how it can affect you over time and advice on making it better for you.</p>
-                <a href="" class="card__button">Read more</a>
-            </figcaption>
-        </figure>
-    </div>
 
-    <div class="modern-card">
-        <figure class="card__thumb">
-            <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
-            <figcaption class="card__caption">
-                <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>
-                <p class="card__snippet">On Friday, offices around the country celebrated the 15th annual Take Your Dog to Work Day. Though the event's primary goal is to raise awareness for pet adoption, the unanticipated impact may be a slightly more relaxing work environment for any office choosing to participate.</p>
-                <a href="" class="card__button">Read more</a>
-            </figcaption>
-        </figure>
-    </div>
-</div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+
+    window.onload = () => {
+      //Making the 'bookFlight' tab active initially
+      document.getElementsByClassName("tab-content")[0].style.display = "block";
+      document.getElementsByClassName("tab-link")[0].className += " active";
+    }
+
+    //Function for opening tab on click
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tab-link");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      //Arrival and Departure Date Pickers
+      flatpickr("#departure-date", {
+        dateFormat: "d-m-Y",
+        minDate: "today",
+      });
+
+      flatpickr("#return-date", {
+        dateFormat: "d-m-Y",
+        minDate: "today",
+      });
+
+      //Displaying Passenger Details
+      document.getElementById('passenger-count').addEventListener('click', function () {
+        document.querySelector('.passenger-details').classList.toggle('active');
+      });
+
+      //Making an object out of form data on submit
+      document.getElementById('swap-destinations-button').addEventListener('click', 
+    function(event) {
+   
+        // Handle the form data
+        event.preventDefault();
+});
+      // document.getElementById('booking-form').addEventListener('submit', function (event) {
+      //   const formData = new FormData(this);
+      //   const formObject = {};
+      //   formData.forEach((value, key) => {
+      //     formObject[key] = value;
+      //   });
+      //   console.log(formObject);
+      // });
+
+    });
+
+    //Incrementing and Decrementing passenger count on clicking respective buttons
+    function increment(field) {
+      const input = document.getElementById(field);
+      input.value = parseInt(input.value) + 1;
+      updateTotalPassengers();
+    }
+
+    function decrement(field) {
+      const input = document.getElementById(field);
+      const value = parseInt(input.value) - 1;
+      input.value = value >= 0 ? value : 0;
+      updateTotalPassengers();
+    }
+
+    //Swap Source and Destination on click
+    document.getElementById('swap-destinations-button').addEventListener('click', function () {
+      const fromDestination = document.getElementById('from-destination').value;
+      const toDestination = document.getElementById('to-destination').value;
+      document.getElementById('from-destination').value = toDestination;
+      document.getElementById('to-destination').value = fromDestination;
+    });
+
+    //Update the total number of passengers after incrementing or decrementing
+    function updateTotalPassengers() {
+      const adults = parseInt(document.getElementById('adults').value);
+      const children = parseInt(document.getElementById('children').value);
+      // const infants = parseInt(document.getElementById('infants').value);
+      const total = adults + children;
+      document.getElementById('passenger-count').textContent = total + " Passenger" + (total !== 1 ? "s" : "");
+    }
+
+  </script>
+
 </body>
 
 </html>
