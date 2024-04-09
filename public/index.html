@@ -7,7 +7,6 @@
   <title>Travel Booking Form</title>
   <link rel="stylesheet" type="text/css" href="booking.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="jsonscript.js"></script>
 </head>
 
 <body>
@@ -44,28 +43,28 @@
           <div class="form-row">
 
             <div class="form-section destination">
-              <label for="from-destination">From:</label>
-              <select id="from-destination" name="from-destination">
-
-                <option value="New York">New York</option>
-                <option value="Los Angeles">Los Angeles</option>
-                <option value="London">London</option>
-                <option value="Paris">Paris</option>
-                <!-- Add more options as needed -->
-
-              </select>
+              <div class="airport-selector">
+                <input type="text" class="airport-input" id="from-destination" placeholder="From">
+                <div class="airport-dropdown airport-dropdown-1"></div>
+              </div>
             </div>
 
 
-            <div class="form-section" class="swap-button-section">
-              <button id="swap-destinations-button" class="swap-button">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink" fill="#FFFFFF" height="90%" width="90%" version="1.1"
-                  id="Layer_1" viewBox="0 0 512.04 512.04" xml:space="preserve">
+            <div class="form-section swap-button-section" style="padding-left: 20px;">
+              <button id="swap-destinations-button" class="swap-button" style="width: 60%;
+              height: auto;
+              aspect-ratio: 1/1;
+              border-radius: 50%;
+              background-color: var(--purple);
+              border: none;
+              cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#FFFFFF"
+                  height="80%" width="80%" version="1.1" id="Layer_1" viewBox="0 0 512.04 512.04" xml:space="preserve">
                   <g>
                     <g>
                       <path
-                        d="M508.933,248.353L402.267,141.687c-4.267-4.053-10.987-3.947-15.04,0.213c-3.947,4.16-3.947,10.667,0,14.827    l88.427,88.427H36.4l88.427-88.427c4.053-4.267,3.947-10.987-0.213-15.04c-4.16-3.947-10.667-3.947-14.827,0L3.12,248.353    c-4.16,4.16-4.16,10.88,0,15.04L109.787,370.06c4.267,4.053,10.987,3.947,15.04-0.213c3.947-4.16,3.947-10.667,0-14.827    L36.4,266.593h439.147L387.12,355.02c-4.267,4.053-4.373,10.88-0.213,15.04c4.053,4.267,10.88,4.373,15.04,0.213    c0.107-0.107,0.213-0.213,0.213-0.213l106.667-106.667C513.093,259.34,513.093,252.513,508.933,248.353z" stroke="white" stroke-width="20"/>
+                        d="M508.933,248.353L402.267,141.687c-4.267-4.053-10.987-3.947-15.04,0.213c-3.947,4.16-3.947,10.667,0,14.827    l88.427,88.427H36.4l88.427-88.427c4.053-4.267,3.947-10.987-0.213-15.04c-4.16-3.947-10.667-3.947-14.827,0L3.12,248.353    c-4.16,4.16-4.16,10.88,0,15.04L109.787,370.06c4.267,4.053,10.987,3.947,15.04-0.213c3.947-4.16,3.947-10.667,0-14.827    L36.4,266.593h439.147L387.12,355.02c-4.267,4.053-4.373,10.88-0.213,15.04c4.053,4.267,10.88,4.373,15.04,0.213    c0.107-0.107,0.213-0.213,0.213-0.213l106.667-106.667C513.093,259.34,513.093,252.513,508.933,248.353z"
+                        stroke="white" stroke-width="20" />
                     </g>
                   </g>
                 </svg>
@@ -74,14 +73,10 @@
 
 
             <div class="form-section destination">
-              <label for="to-destination">To:</label>
-              <select id="to-destination" name="to-destination">
-                <option value="Los Angeles">Los Angeles</option>
-                <option value="New York">New York</option>
-                <option value="London">London</option>
-                <option value="Paris">Paris</option>
-                <!-- Add more options as needed -->
-              </select>
+              <div class="airport-selector">
+                <input type="text" class="airport-input" id="to-destination" placeholder="To">
+                <div class="airport-dropdown airport-dropdown-2"></div>
+              </div>
             </div>
 
           </div>
@@ -90,15 +85,22 @@
 
           <div class="form-row">
 
-            <div class="form-section">
-              <label for="departure-date">Departure Date:</label>
-              <input type="text" id="departure-date" name="departure-date" class="date-picker" readonly>
+            <div class="form-section a-date">
+              <input type="text" id="departure-date" name="departure-date" class="date-picker"
+                placeholder="Departure Date" readonly>
             </div>
 
 
+            <div class="form-section a-date">
+              <input type="text" id="return-date" name="return-date" class="date-picker" placeholder="Return Date"
+                readonly>
+            </div>
+
             <div class="form-section">
-              <label for="return-date">Return Date:</label>
-              <input type="text" id="return-date" name="return-date" class="date-picker" readonly>
+              <label for="no-return-checkbox">
+                 One-way
+              </label>
+              <input type="checkbox" id="no-return-checkbox" onchange="toggleTextInput()" name="no-return-checkbox">
             </div>
 
           </div>
@@ -148,11 +150,21 @@
 
             </div>
 
+            <div class="form-section destination">
+              <label for="class-selector">Class:</label>
+              <select id="class-selector" name="class-selector">
+                <option value="Economy">Economy</option>
+                <option value="Business">Business</option>
+                <option value="Executive">Executive</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+
           </div>
 
 
 
-          <button type="submit" id="submit-booking-details">Search Flights</button>
+          <button type="submit" id="submit-booking-details" class="submit-booking-details">Search Flights</button>
 
         </form>
       </div>
@@ -170,6 +182,51 @@
       <!-- Tab 4 -->
       <div id="flight-schedule" class="tab-content">
         <!-- Content for Flight Schedule tab -->
+        <form id="schedule-booking-form" method="post">
+
+          <div class="form-row">
+
+            <div class="form-section destination">
+              <div class="airport-selector">
+                <input type="text" class="airport-input" id="schedule-from-destination" placeholder="From">
+                <div class="airport-dropdown airport-dropdown-1"></div>
+              </div>
+            </div>
+
+
+            <div class="form-section swap-button-section" style="padding-left: 20px;">
+              <button id="schedule-swap-destinations-button" class="swap-button" style="width: 60%;
+              height: auto;
+              aspect-ratio: 1/1;
+              border-radius: 50%;
+              background-color: var(--purple);
+              border: none;
+              cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#FFFFFF"
+                  height="80%" width="80%" version="1.1" id="Layer_1" viewBox="0 0 512.04 512.04" xml:space="preserve">
+                  <g>
+                    <g>
+                      <path
+                        d="M508.933,248.353L402.267,141.687c-4.267-4.053-10.987-3.947-15.04,0.213c-3.947,4.16-3.947,10.667,0,14.827    l88.427,88.427H36.4l88.427-88.427c4.053-4.267,3.947-10.987-0.213-15.04c-4.16-3.947-10.667-3.947-14.827,0L3.12,248.353    c-4.16,4.16-4.16,10.88,0,15.04L109.787,370.06c4.267,4.053,10.987,3.947,15.04-0.213c3.947-4.16,3.947-10.667,0-14.827    L36.4,266.593h439.147L387.12,355.02c-4.267,4.053-4.373,10.88-0.213,15.04c4.053,4.267,10.88,4.373,15.04,0.213    c0.107-0.107,0.213-0.213,0.213-0.213l106.667-106.667C513.093,259.34,513.093,252.513,508.933,248.353z"
+                        stroke="white" stroke-width="20" />
+                    </g>
+                  </g>
+                </svg>
+              </button>
+            </div>
+
+
+            <div class="form-section destination">
+              <div class="airport-selector">
+                <input type="text" class="airport-input" id="schedule-to-destination" placeholder="To">
+                <div class="airport-dropdown airport-dropdown-2"></div>
+              </div>
+            </div>
+
+          </div>
+          <button type="submit" id="schedule-submit-booking-details" class="submit-booking-details">Search Flights</button>
+
+        </form>
       </div>
 
     </div>
@@ -179,6 +236,21 @@
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
+
+const valid = true;
+    // Sample list of airports (you can replace it with your own list)
+    const airports = [
+      "JFK - John F. Kennedy International Airport",
+      "LAX - Los Angeles International Airport",
+      "ORD - O'Hare International Airport",
+      "ATL - Hartsfield-Jackson Atlanta International Airport",
+      "DFW - Dallas/Fort Worth International Airport",
+      "DEN - Denver International Airport",
+      "SFO - San Francisco International Airport",
+      "SEA - Seattle-Tacoma International Airport",
+      "LAS - McCarran International Airport",
+      "MIA - Miami International Airport"
+    ];
 
     window.onload = () => {
       //Making the 'bookFlight' tab active initially
@@ -221,22 +293,115 @@
       });
 
       //Making an object out of form data on submit
-      document.getElementById('swap-destinations-button').addEventListener('click', 
-    function(event) {
-   
-        // Handle the form data
+      document.getElementById('swap-destinations-button').addEventListener('click',
+        function (event) {
+
+          // Handle the form data
+          event.preventDefault();
+        });
+      document.getElementById('booking-form').addEventListener('submit', function (event) {
+
         event.preventDefault();
-});
-      // document.getElementById('booking-form').addEventListener('submit', function (event) {
-      //   const formData = new FormData(this);
-      //   const formObject = {};
-      //   formData.forEach((value, key) => {
-      //     formObject[key] = value;
-      //   });
-      //   console.log(formObject);
-      // });
+        const nr = document.getElementById('no-return-checkbox').value;
+        const from = document.getElementById('from-destination').value;
+        const to = document.getElementById('from-destination').value;
+        // validateBookAFlightForm();
+        if (valid) {
+          const formData = new FormData(this);
+          formData.append('no-return', nr);
+          formData.append('from', from);
+          formData.append('to', to);
+          const formObject = {};
+          formData.forEach((value, key) => {
+            formObject[key] = value;
+          });
+          console.log(formObject);
+        }
+      });
+
+      //Schedule Tab
+       //Making an object out of form data on submit
+       document.getElementById('schedule-swap-destinations-button').addEventListener('click',
+        function (event) {
+
+          // Handle the form data
+          event.preventDefault();
+        });
+      document.getElementById('schedule-booking-form').addEventListener('submit', function (event) {
+        // validateBookAFlightForm();
+        event.preventDefault();
+        const from = document.getElementById('schedule-from-destination').value;
+        const to = document.getElementById('schedule-from-destination').value;
+        
+        if (valid) {
+          const scheduleFormData = new FormData(this);
+          scheduleFormData.append('from', from);
+          scheduleFormData.append('to', to);
+          const scheduleFormObject = {};
+          scheduleFormData.forEach((value, key) => {
+            scheduleFormObject[key] = value;
+          });
+          console.log(scheduleFormObject);
+        }
+      });
+
+
+      const airportInputs = document.querySelectorAll(".airport-input");
+
+      airportInputs.forEach(function (airportInput) {
+        const airportDropdown = airportInput.nextElementSibling;
+
+        // Function to filter airports based on user input
+        function filterAirports() {
+          const searchText = airportInput.value.toLowerCase();
+          const filteredAirports = airports.filter(airport => airport.toLowerCase().includes(searchText));
+          displayAirports(filteredAirports);
+          if (searchText.length === 0) return airportDropdown.classList.remove("active");
+
+        }
+
+        // Function to display filtered airports in the dropdown
+        function displayAirports(airportsToShow) {
+          const dropdownContent = airportsToShow.map(airport => `<div class="airport-option">${airport}</div>`).join("");
+          airportDropdown.innerHTML = dropdownContent;
+          airportDropdown.classList.add("active");
+        }
+
+        // Event listener for input changes
+        airportInput.addEventListener("input", filterAirports);
+
+        // Event listener for selecting an airport from dropdown
+        airportDropdown.addEventListener("click", function (event) {
+          if (event.target.classList.contains("airport-option")) {
+            airportInput.value = event.target.textContent;
+            airportDropdown.classList.remove("active");
+          }
+        });
+        var currDestBox;
+        airportInput.addEventListener("focus", () => { currDestBox = event.target; filterAirports(); }); // Show dropdown when input is focused
+        document.addEventListener("click", function (event) {
+          if (event.target != currDestBox && !event.target.classList.contains("airport-option")) {
+            airportDropdown.classList.remove("active");
+          }
+        });
+      });
 
     });
+
+
+    // Function to disable/enable text input based on checkbox state
+    function toggleTextInput() {
+      var checkbox = document.getElementById("no-return-checkbox");
+      var textInput = document.getElementById("return-date");
+
+      if (checkbox.checked) {
+        textInput.style.cursor = "default";
+        textInput.disabled = true;
+      } else {
+        textInput.style.cursor = "pointer";
+        textInput.disabled = false;
+      }
+    }
 
     //Incrementing and Decrementing passenger count on clicking respective buttons
     function increment(field) {
@@ -258,6 +423,14 @@
       const toDestination = document.getElementById('to-destination').value;
       document.getElementById('from-destination').value = toDestination;
       document.getElementById('to-destination').value = fromDestination;
+    });
+
+    //Swap Source and Destination on click (Flight Schedule Tab)
+    document.getElementById('schedule-swap-destinations-button').addEventListener('click', function () {
+      const fromDestination = document.getElementById('schedule-from-destination').value;
+      const toDestination = document.getElementById('schedule-to-destination').value;
+      document.getElementById('schedule-from-destination').value = toDestination;
+      document.getElementById('schedule-to-destination').value = fromDestination;
     });
 
     //Update the total number of passengers after incrementing or decrementing

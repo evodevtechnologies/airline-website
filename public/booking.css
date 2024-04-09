@@ -7,6 +7,7 @@
 
 body {
   background-color: #f0f0f0;
+  overflow: visible;
 }
 
 .tab-container {
@@ -60,45 +61,83 @@ body {
 form {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .form-row {
   margin-bottom: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 .form-section {
+  flex: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  flex:1;
-  padding: 8px;
+  padding: 10px;
 }
+
+.form-section > div {
+  flex: 1;
+}
+
+.a-date{flex: 3;}
+.destination{flex: 3;}
 
 .button-section select,
 input {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  flex: 1;
+  flex: 2;
+  width: 20px;
 
 }
 
-.swap-button-section{
-  width: 20%;
+#Region for airport selector
 
+.airport-selector {
+  position: relative;
+  width: 300px;
+  margin-bottom: 20px; /* Add margin to create space for the dropdown */
 }
+.airport-selector input[type="text"] {
+  width: 100%;
+  padding: 8px;
+}
+.airport-dropdown {
+  position: fixed;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+.airport-dropdown.active {
+  display: block;
+}
+.airport-option {
+  padding: 8px;
+  cursor: pointer;
+}
+.airport-option:hover {
+  background-color: #f0f0f0;
+}
+#Endregion
+
+
 .swap-button {
   width: 20%;
+  height: auto;
   aspect-ratio: 1/1;
   border-radius: 50%;
   background-color: var(--purple);
   border: none;
-  color: white;
-  font-size: 0.7rem;
   cursor: pointer;
 }
 
@@ -131,7 +170,7 @@ input {
   border-right: none;
 }
 
-#submit-booking-details {
+.submit-booking-details {
   padding: 10px;
   border: none;
   background-color: var(--purple);
@@ -147,8 +186,21 @@ input {
 }
 
 .passenger-details {
+  padding: 10px;
   display: none;
+  
   margin-top: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .toggle-passenger-details {

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Check-in</title>
+    <style>
+        :root {
+    --base-color: white;
+    --accent: gold;
+    --purple: #892680;
+    --dark-purple: #792172;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--base-color);
+}
+
+.checkin-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: var(--purple);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--dark-purple);
+    border-radius: 3px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--purple);
+    color: var(--base-color);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--dark-purple);
+}
+
+#checkin-result {
+    margin-top: 20px;
+    color: var(--purple);
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="checkin-container">
+        <form id="checkin-form">
+            <label for="booking-code">Booking Code:</label>
+            <input type="text" id="booking-code" name="booking-code" required>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required>
+            <button type="submit">Check-in</button>
+        </form>
+        <div id="checkin-result"></div>
+    </div>
+    <script>
+
+        document.getElementById("checkin-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from submitting via the browser
+            const bookingCode = document.getElementById("booking-code").value;
+            const lastName = document.getElementById("last-name").value;
+            // Simulate check-in process (replace with actual backend API call)
+            setTimeout(function () {
+                const successMessage = document.createElement("p");
+                successMessage.textContent = "Check-in successful!";
+                document.getElementById("checkin-result").appendChild(successMessage);
+            }, 2000); // Simulating network delay
+        });
+
+    </script>
+</body>
+
+</html>
