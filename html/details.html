@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger Details</title>
+    <style>
+        :root {
+            --base-color: white;
+            --accent: gold;
+            --purple: #892680;
+            --dark-purple: #792172;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--base-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--base-color);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .passenger-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            background-color: #fff;
+        }
+
+        .passenger-card:hover {
+            background-color: #f9f9f9;
+            border: 2px solid var(--dark-purple);
+        }
+
+        .passenger-card h2 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--purple);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: var(--purple);
+            color: var(--base-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--dark-purple);
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+            /* Hide error messages by default */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Passenger Details</h1>
+        <div id="passengerList"></div>
+        <button id="submitBtn" onclick="validateAndProceed()">Proceed to Payment</button>
+    </div>
+
+    <script>
+        // Sample JSON data for number of passengers
+        var passengerCounts = {
+            "adults": 2,
+            "children": 1
+        };
+
+        // Function to generate passenger cards
+        function generatePassengerCards(passengerCounts) {
+            var passengerList = document.getElementById('passengerList');
+            for (var i = 1; i <= passengerCounts.adults; i++) {
+                passengerList.appendChild(createPassengerCard(i, 'adult'));
+            }
+            for (var j = 1; j <= passengerCounts.children; j++) {
+                passengerList.appendChild(createPassengerCard(j, 'child'));
+            }
+        }
+
+        // Function to create passenger card
+        function createPassengerCard(id, type) {
+            var card = document.createElement('div');
+            card.classList.add('passenger-card');
+            card.innerHTML = `
+                <h2>${type === 'adult' ? 'Adult' : 'Child'} ${id}</h2>
+                <label for="${type}Name${id}">Name:</label>
+                <input type="text" id="${type}Name${id}" name="${type}Name${id}" onblur="validateField(this)" oninput="clearError(this)" required>
+                <div id="${type}Name${id}ErrorMessage" class="error-message">Name cannot be empty.</div>
+                <label for="${type}Age${id}">Age:</label>
+                <input type="text" id="${type}Age${id}" name="${type}Age${id}" onblur="validateField(this)" oninput="clearError(this)" required>
+                <div id="${type}Age${id}ErrorMessage" class="error-message">Age must be a valid number.</div>
+            `;
+            return card;
+        }
+
+        // Function to validate a field
+        function validateField(field) {
+            var isValid = 1;
+            var errorMessageElement = document.getElementById(`${field.id}ErrorMessage`);
+            if (!field.value.trim()) {
+                errorMessageElement.style.display = 'block'; // Show error message
+                isValid = 0;
+            }
+            else if(field.id.includes('Age')) {
+                var age = parseInt(field.value.trim());
+                if (isNaN(age) || (field.id.includes('Age') && ((field.id.includes('adult') && age <= 18) || (field.id.includes('child') && (age < 5 || age > 18))))) {
+                    errorMessageElement.style.display = 'block'; // Show error message
+                    isValid=0;
+                }
+                else {
+                    errorMessageElement.style.display = 'none'; // Hide error message
+                    
+                }
+            }
+            return isValid;
+        }
+
+        // Function to clear error message
+        function clearError(field) {
+            var errorMessageElement = document.getElementById(`${field.id}ErrorMessage`);
+            errorMessageElement.style.display = 'none'; // Hide error message
+        }
+
+        // Function to validate and proceed to payment
+        function validateAndProceed() {
+            var fields = document.querySelectorAll('input[type="text"]');
+            let valids = 0;
+            for (var i = 0; i < fields.length; i++) {
+                valids+=validateField(fields[i]);
+            }
+            console.log(valids);
+            console.log(fields.length);
+            if(valids == fields.length){
+            // Proceed to payment page
+            alert('Proceeding to payment...');
+            window.open('payment.html', '_self');
+            }
+        }
+
+        // Initialize
+        generatePassengerCards(passengerCounts);
+    </script>
+</body>
+
+</html>

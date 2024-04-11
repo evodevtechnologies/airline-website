@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Payment</title>
+    <style>
+        :root {
+            --base-color: white;
+            --accent: gold;
+            --purple: #892680;
+            --dark-purple: #792172;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--base-color);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: var(--base-color);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: var(--dark-purple);
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="#333" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M6 9l4 4 4-4z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 18px;
+        }
+
+        button[type="submit"] {
+            background-color: var(--purple);
+            color: var(--base-color);
+            padding: 15px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--dark-purple);
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Flight Payment</h1>
+        <form id="paymentForm" onsubmit="return validateForm()">
+            <label for="paymentMethod">Select Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod">
+                <option value="creditCard">Credit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="bankTransfer">Bank Transfer</option>
+            </select>
+
+            <div class="payment-details hidden" id="creditCardDetails">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number">
+                <div id="cardNumberError" class="error-message"></div>
+                <br>
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY">
+                <div id="expiryDateError" class="error-message"></div>
+                <br>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="Enter CVV">
+                <div id="cvvError" class="error-message"></div>
+                <br>
+            </div>
+            <div class="payment-details hidden" id="paypalDetails">
+                <label for="paypalUsername">PayPal Username:</label>
+                <input type="text" id="paypalUsername" name="paypalUsername" placeholder="Enter your PayPal username">
+                <div id="paypalUsernameError" class="error-message"></div>
+                <br>
+                <label for="paypalPassword">Password:</label>
+                <input type="password" id="paypalPassword" name="paypalPassword"
+                    placeholder="Enter your PayPal password">
+                <div id="paypalPasswordError" class="error-message"></div>
+                <br>
+            </div>
+            <div class="payment-details hidden" id="bankTransferDetails">
+                <label for="bankName">Bank Name:</label>
+                <input type="text" id="bankName" name="bankName" placeholder="Enter bank name">
+                <div id="bankNameError" class="error-message"></div>
+                <br>
+                <label for="accountNumber">Account Number:</label>
+                <input type="text" id="accountNumber" name="accountNumber" placeholder="Enter account number">
+                <div id="accountNumberError" class="error-message"></div>
+                <br>
+            </div>
+            <button type="submit">Proceed to Payment</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('paymentMethod').addEventListener('change', function () {
+            var paymentMethod = this.value;
+            var paymentDetails = document.querySelectorAll('.payment-details');
+
+            // Hide all payment details
+            paymentDetails.forEach(function (detail) {
+                detail.classList.add('hidden');
+            });
+
+            // Show payment details based on selected payment method
+            document.getElementById(paymentMethod + 'Details').classList.remove('hidden');
+        });
+
+        // Trigger change event to display credit card details by default
+        document.getElementById('paymentMethod').dispatchEvent(new Event('change'));
+
+        function validateForm() {
+            var paymentMethod = document.getElementById('paymentMethod').value;
+            var isValid = true;
+
+            if (paymentMethod === 'creditCard') {
+                isValid = validateCreditCard();
+            } else if (paymentMethod === 'paypal') {
+                isValid = validatePayPal();
+            } else if (paymentMethod === 'bankTransfer') {
+                isValid = validateBankTransfer();
+            }
+
+            if (isValid) {
+                // Simulate payment success and redirect
+                window.open('blank.html', '_self') // Open success page in a new tab
+            }
+            return false; // Prevent form submission
+        }
+
+        function validateCreditCard() {
+            var cardNumber = document.getElementById('cardNumber').value.trim();
+            var expiryDate = document.getElementById('expiryDate').value.trim();
+            var cvv = document.getElementById('cvv').value.trim();
+            var isValid = true;
+
+            // Reset error messages
+            document.getElementById('cardNumberError').textContent = '';
+            document.getElementById('expiryDateError').textContent = '';
+            document.getElementById('cvvError').textContent = '';
+
+            // Card Number Validation
+            if (!isValidCreditCard(cardNumber)) {
+                document.getElementById('cardNumberError').textContent = 'Invalid card number';
+                isValid = false;
+            }
+
+            // Expiry Date Validation
+            if (!isValidExpiryDate(expiryDate)) {
+                document.getElementById('expiryDateError').textContent = 'Invalid expiry date';
+                isValid = false;
+            }
+
+            // CVV Validation
+            if (!isValidCVV(cvv)) {
+                document.getElementById('cvvError').textContent = 'Invalid CVV';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function validatePayPal() {
+            var paypalUsername = document.getElementById('paypalUsername').value.trim();
+            var paypalPassword = document.getElementById('paypalPassword').value.trim();
+            var isValid = true;
+
+            // Reset error messages
+            document.getElementById('paypalUsernameError').textContent = '';
+            document.getElementById('paypalPasswordError').textContent = '';
+
+            // PayPal Username Validation
+            if (paypalUsername === '') {
+                document.getElementById('paypalUsernameError').textContent = 'PayPal username is required';
+                isValid = false;
+            }
+
+            // PayPal Password Validation
+            if (paypalPassword === '') {
+                document.getElementById('paypalPasswordError').textContent = 'PayPal password is required';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function validateBankTransfer() {
+            var bankName = document.getElementById('bankName').value.trim();
+            var accountNumber = document.getElementById('accountNumber').value.trim();
+            var isValid = true;
+
+            // Reset error messages
+            document.getElementById('bankNameError').textContent = '';
+            document.getElementById('accountNumberError').textContent = '';
+
+            // Bank Name Validation
+            if (bankName === '') {
+                document.getElementById('bankNameError').textContent = 'Bank name is required';
+                isValid = false;
+            }
+
+            // Account Number Validation
+            if (!isValidAccountNumber(accountNumber)) {
+                document.getElementById('accountNumberError').textContent = 'Invalid account number';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Utility functions for validation
+        function isValidCreditCard(cardNumber) {
+            // Validate card number
+            // Return true if valid, false otherwise
+            // For demonstration purpose, we assume any 16-digit number is valid
+            return /^\d{16}$/.test(cardNumber);
+        }
+
+        function isValidExpiryDate(expiryDate) {
+            // Validate expiry date format (MM/YY)
+            // Return true if valid, false otherwise
+            // For demonstration purpose, we assume any valid format is accepted
+            return /^\d{2}\/\d{2}$/.test(expiryDate);
+        }
+
+        function isValidCVV(cvv) {
+            // Validate CVV (3 digits)
+            // Return true if valid, false otherwise
+            // For demonstration purpose, we assume any 3-digit number is valid
+            return /^\d{3}$/.test(cvv);
+        }
+
+        function isValidAccountNumber(accountNumber) {
+            // Validate account number
+            // Return true if valid, false otherwise
+            // For demonstration purpose, we assume any non-empty value containing only numbers and spaces is valid
+            return /^[0-9\s]*$/.test(accountNumber);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Animation</title>
+<style>
+  #topDiv {
+    height: 500px;
+    background-color: lightblue;
+  }
+
+  #animatedDiv {
+    height: 200px;
+    background-color: lightgreen;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease; /* Smooth transition */
+    position: fixed;
+  }
+
+  #bottomDiv {
+    height: 500px;
+    background-color: lightcoral;
+  }
+</style>
+</head>
+<body>
+<div id="topDiv">dfgsdfgsdgdf</div>
+<div id="animatedDiv">13232143546475632</div>
+<div id="bottomDiv">dfgsdfgddsfgs</div>
+
+<script>
+  window.addEventListener('scroll', function() {
+    var topDiv = document.getElementById('topDiv');
+    var animatedDiv = document.getElementById('animatedDiv');
+    var bottomDiv = document.getElementById('bottomDiv');
+    var topDivRect = topDiv.getBoundingClientRect();
+    var bottomDivRect = bottomDiv.getBoundingClientRect();
+
+    if (bottomDivRect.top < topDivRect.bottom && bottomDivRect.bottom > topDivRect.top) {
+      animatedDiv.style.opacity = '1'; // Make the div visible
+    } else {
+      animatedDiv.style.opacity = '0'; // Hide the div
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Booking Form</title>
+  <link rel="stylesheet" type="text/css" href="../css/tab.css">
+  <link rel="stylesheet" type="text/css" href="../css/my-bookings.css">
+  <link rel="stylesheet" type="text/css" href="../css/check-in.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+</head>
+
+<body>
+
+
+
+  <div class="cred-section">
+
+    <button class="button-1" role="button" onclick="window.location.href = 'credentials/sign-in.html';">
+      Sign In
+    </button>
+    <button class="button-1" role="button" onclick="window.location.href = 'credentials/sign-up.html';">
+      Sign Up
+    </button>
+
+  </div>
+
+
+  <section class="tab-section">
+
+    <div class="tab-container">
+
+      <div class="tab-links-container">
+        <button class="tab-link" onclick="openTab(event, 'book-flight')">Book a flight</button>
+        <button class="tab-link" onclick="openTab(event, 'my-bookings')">My Bookings</button>
+        <button class="tab-link" onclick="openTab(event, 'flight-status')">Flight Status</button>
+        <button class="tab-link" onclick="openTab(event, 'flight-schedule')">Flight Schedule</button>
+      </div>
+
+      <!-- Tab 1 -->
+      <div id="book-flight" class="tab-content">
+        <form id="booking-form" method="post">
+
+          <div class="form-row">
+
+            <div class="form-section destination">
+              <div class="airport-selector">
+                <input type="text" class="airport-input" id="from-destination" placeholder="From">
+                <div class="airport-dropdown airport-dropdown-1"></div>
+              </div>
+            </div>
+
+
+            <div class="form-section swap-button-section" style="padding-left: 20px;">
+              <button id="swap-destinations-button" class="swap-button" style="width: 60%;
+              height: auto;
+              aspect-ratio: 1/1;
+              border-radius: 50%;
+              background-color: var(--purple);
+              border: none;
+              cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#FFFFFF"
+                  height="80%" width="80%" version="1.1" id="Layer_1" viewBox="0 0 512.04 512.04" xml:space="preserve">
+                  <g>
+                    <g>
+                      <path
+                        d="M508.933,248.353L402.267,141.687c-4.267-4.053-10.987-3.947-15.04,0.213c-3.947,4.16-3.947,10.667,0,14.827    l88.427,88.427H36.4l88.427-88.427c4.053-4.267,3.947-10.987-0.213-15.04c-4.16-3.947-10.667-3.947-14.827,0L3.12,248.353    c-4.16,4.16-4.16,10.88,0,15.04L109.787,370.06c4.267,4.053,10.987,3.947,15.04-0.213c3.947-4.16,3.947-10.667,0-14.827    L36.4,266.593h439.147L387.12,355.02c-4.267,4.053-4.373,10.88-0.213,15.04c4.053,4.267,10.88,4.373,15.04,0.213    c0.107-0.107,0.213-0.213,0.213-0.213l106.667-106.667C513.093,259.34,513.093,252.513,508.933,248.353z"
+                        stroke="white" stroke-width="20" />
+                    </g>
+                  </g>
+                </svg>
+              </button>
+            </div>
+
+
+            <div class="form-section destination">
+              <div class="airport-selector">
+                <input type="text" class="airport-input" id="to-destination" placeholder="To">
+                <div class="airport-dropdown airport-dropdown-2"></div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <div class="form-row">
+
+            <div class="form-section a-date">
+              <input type="text" id="departure-date" name="departure-date" class="date-picker"
+                placeholder="Departure Date" readonly>
+            </div>
+
+
+            <div class="form-section a-date">
+              <input type="text" id="return-date" name="return-date" class="date-picker" placeholder="Return Date"
+                readonly>
+            </div>
+
+            <div class="form-section">
+              <label for="no-return-checkbox">
+                One-way
+              </label>
+              <input type="checkbox" id="no-return-checkbox" onchange="toggleTextInput()" name="no-return-checkbox">
+            </div>
+
+          </div>
+
+
+
+          <div class="form-row">
+
+            <div class="form-section">
+
+
+              <div class="passenger-count">
+
+                <button type="button" class="toggle-passenger-details" id="passenger-count">1 Adult</button>
+
+                <div class="passenger-details">
+                  <div>
+                    <label for="adults">Adults:</label>
+                    <div class="passenger-number-input" name="adults">
+                      <button type="button" onclick="decrement('adults')">-</button>
+                      <input type="text" id="adults" name="adults" value="1" readonly>
+                      <button type="button" onclick="increment('adults')">+</button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="children">Children:</label>
+                    <div class="passenger-number-input" name="children">
+                      <button type="button" onclick="decrement('children')">-</button>
+                      <input type="text" id="children" name="children" value="0" readonly>
+                      <button type="button" onclick="increment('children')">+</button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="infants">Infants:</label>
+                    <div class="passenger-number-input" name="infants">
+                      <button type="button" onclick="decrement('infants')">-</button>
+                      <input type="text" id="infants" name="infants" value="0" readonly>
+                      <button type="button" onclick="increment('infants')">+</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="form-section destination">
+              <label for="class-selector">Class:</label>
+              <select id="class-selector" name="class-selector">
+                <option value="Economy">Economy</option>
+                <option value="Business">Business</option>
+                <option value="Executive">Executive</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+
+          </div>
+
+
+
+          <button type="submit" id="submit-booking-details" class="submit-booking-details">Search Flights</button>
+
+        </form>
+      </div>
+
+      <!-- Tab 2 -->
+      <div id="my-bookings" class="tab-content">
+        <!-- Content for My Bookings tab -->
+        <!-- Container for booking cards -->
+        <div id="bookingCards"></div>
+
+        <div class="upgrade-dialog" id="upgradeDialog">
+          <div class="dialog-content">
+            <label for="classOptions">Select Class:</label>
+            <select name="classOptions" id="classOptions">
+            </select>
+            <div class="dialog-buttons">
+              <button class="dialog-button" onclick="upgradeClass(this)">Confirm</button>
+              <button class="dialog-button"
+                onclick="document.querySelector('.upgrade-dialog').classList.remove('show')">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3 -->
+      <div id="flight-status" class="tab-content">
+        <!-- Content for Flight Status tab -->
+        <div class="checkin-container">
+          <form id="checkin-form" method="post"> <input type="text" id="checkin-booking-code"
+              name="checkin-booking-code" placeholder="Booking Code" required> <input type="text" id="checkin-last-name"
+              name="checkin-last-name" placeholder="Last Name" required>
+            <button type="submit">Check-in</button>
+          </form>
+          <div id="checkin-result"></div>
+        </div>
+      </div>
+
+      <!-- Tab 4 -->
+      <div id="flight-schedule" class="tab-content">
+        <!-- Content for Flight Schedule tab -->
+        <form id="schedule-booking-form" method="post">
+
+          <div class="form-row">
+
+            <div class="form-section destination">
+              <div class="airport-selector">
+                <input type="text" class="airport-input" id="schedule-from-destination" placeholder="From">
+                <div class="airport-dropdown airport-dropdown-1"></div>
+              </div>
+            </div>
+
+
+            <div class="form-section swap-button-section" style="padding-left: 20px;">
+              <button id="schedule-swap-destinations-button" class="swap-button" style="width: 60%;
+              height: auto;
+              aspect-ratio: 1/1;
+              border-radius: 50%;
+              background-color: var(--purple);
+              border: none;
+              cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#FFFFFF"
+                  height="80%" width="80%" version="1.1" id="Layer_1" viewBox="0 0 512.04 512.04" xml:space="preserve">
+                  <g>
+                    <g>
+                      <path
+                        d="M508.933,248.353L402.267,141.687c-4.267-4.053-10.987-3.947-15.04,0.213c-3.947,4.16-3.947,10.667,0,14.827    l88.427,88.427H36.4l88.427-88.427c4.053-4.267,3.947-10.987-0.213-15.04c-4.16-3.947-10.667-3.947-14.827,0L3.12,248.353    c-4.16,4.16-4.16,10.88,0,15.04L109.787,370.06c4.267,4.053,10.987,3.947,15.04-0.213c3.947-4.16,3.947-10.667,0-14.827    L36.4,266.593h439.147L387.12,355.02c-4.267,4.053-4.373,10.88-0.213,15.04c4.053,4.267,10.88,4.373,15.04,0.213    c0.107-0.107,0.213-0.213,0.213-0.213l106.667-106.667C513.093,259.34,513.093,252.513,508.933,248.353z"
+                        stroke="white" stroke-width="20" />
+                    </g>
+                  </g>
+                </svg>
+              </button>
+            </div>
+
+
+            <div class="form-section destination">
+              <div class="airport-selector">
+                <input type="text" class="airport-input" id="schedule-to-destination" placeholder="To">
+                <div class="airport-dropdown airport-dropdown-2"></div>
+              </div>
+            </div>
+
+          </div>
+          <button type="submit" id="schedule-submit-booking-details" class="submit-booking-details">Search
+            Flights</button>
+
+        </form>
+      </div>
+
+    </div>
+
+
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="../js/tab.js"></script>
+  <script src="../js/book-a-flight.js"></script>
+  <script src="../js/my-bookings.js"></script>
+  <script src="../js/checkin.js"></script>
+  <script src="../js/flight-schedule.js"></script>
+ 
+
+</body>
+
+</html>
