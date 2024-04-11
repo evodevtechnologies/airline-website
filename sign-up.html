@@ -27,15 +27,6 @@
             <div class="password-field">
                 <input type="password" class="password-input" id="password" placeholder=" " required>
                 <label for="password" class="password-label"><i>Enter your password</i></label>
-                <div id="password-strength-popup" class="password-strength-popup">
-                    <ul>
-                        <li id="min-length">Minimum 8 characters</li>
-                        <li id="uppercase">Minimum 1 Uppercase character</li>
-                        <li id="lowercase">Minimum 1 Lowercase character</li>
-                        <li id="number">Minimum 1 Number</li>
-                        <li id="special-char">Minimum 1 special character</li>
-                    </ul>
-                </div>
             </div>
             
             <input type="submit" value="Sign up" id="sign-up-button" onclick="redirectToOTPAuth()">
@@ -65,6 +56,12 @@
             <a id="sign-up" href="sign-in.html">SIGN IN</a>
             <a href="sign-in.html"><img id="arrow_1" src="images/arrow_1.png"></a>
         </div>
+    </div>
+    <div class="notification" id="notification">
+        <span class="close-button" onclick="closeNotification()">&times;</span>
+        <h3 id="notification-header">Success!</h3>
+        <p class="notification-text" id="notification-text">Login Successful</p>
+        <div class="horizontal-line" id="horizontal-line"></div> <!-- Horizontal line added -->
     </div>
 </body>
 </html>
