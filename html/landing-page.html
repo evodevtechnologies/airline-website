@@ -25,7 +25,7 @@
 
 <body>
 
-  <marquee bgcolor="black" color="gold" style="padding: 15px; font-family: 'Arkhip', sans-serif;">
+  <marquee bgcolor="black" color="gold" style="padding: 15px; font-family: 'Arkhip', sans-serif;" class="top">
     <!-- <ol class="offers">
       <li>content offer</li>
       <li>content offer</li>
@@ -41,10 +41,10 @@
     </div>
     <div class="page-nav">
       <nav>
-        <a href="#" class="hover-line">Booking</a>
-        <a href="#" class="hover-line">Services</a>
-        <a href="#" class="hover-line">About us</a>
-        <a href="#" class="hover-line">Contact Us</a>
+        <a href="#" class="hover-line" onclick="smoothScroll('.tab-section')">Booking</a>
+        <a href="#" class="hover-line" onclick="smoothScroll('#horizontal-scroll')">Fleet</a>
+        <a href="#" class="hover-line" onclick="smoothScroll('#horizontal-scroll2')">Lounges</a>
+        <a href="#" class="hover-line" onclick="smoothScroll('.card-container')">Destinations</a>
         <div class="animation start-hom"></div>
       </nav>
     </div>
@@ -446,10 +446,10 @@
       
     <h3>Links</h3><br>
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <li><a onclick="smoothScroll('.tab-section')">Booking</a></li>
+       <li> <a onclick="smoothScroll('#horizontal-scroll')">Fleet</a></li>
+       <li> <a onclick="smoothScroll('#horizontal-scroll2')">Lounges</a></li>
+       <li> <a onclick="smoothScroll('.card-container')">Destinations</a></li>
     </ul>
 </div>
     <div class="social-menu">
@@ -461,6 +461,7 @@
       </ul>
   </div>
   </section>
+  <button onclick="smoothScroll('.top')" id="myBtn" title="Go to top">Top</button>
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="../js/tab.js"></script>
