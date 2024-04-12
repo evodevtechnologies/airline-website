@@ -9,23 +9,26 @@ const count1 = new CountUp('MyNumber1', 0, 650000, 0, 5, countOptions);
 const count2 = new CountUp('MyNumber2', 0, 135000, 0, 5, countOptions);
 const count3 = new CountUp('MyNumber3', 0, 86, 0, 5, countOptions);
 
-var observer = new IntersectionObserver(function (entries) {
-  if (entries[0].isIntersecting === true) {
-    console.log('Element is fully visible in screen');
-    document.querySelector("#count-up-container").style.display = "flex";
-    count1.start();
-    count2.start();
-    count3.start();
-  }else{
+window.addEventListener('scroll', () => {
+
+  let cont = document.querySelector(".tab-container").style.height;
+  if( window.scrollY > cont+1450 || window.scrollY < cont+1100){
     console.log('Element is NOT fully visible in screen');
     document.querySelector("#count-up-container").style.display = "none";
     count1.reset();
     count2.reset();
     count3.reset();
   }
-}, { threshold: [1] });
-
-observer.observe(document.querySelector("#count-up-shower"));
+  else if (window.scrollY > cont+1100) {
+    console.log('Element is fully visible in screen');
+    document.querySelector("#count-up-container").style.display = "flex";
+    count1.start();
+    count2.start();
+    count3.start();
+  }
+  
+  
+});
 
 const parallax = document.querySelector(".parallax");
 const heading = document.querySelector(".heading");

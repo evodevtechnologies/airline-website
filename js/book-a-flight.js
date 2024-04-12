@@ -150,7 +150,7 @@ function checkForm(event) {
       const input = form.elements[i];
 
       // Check if the input is empty
-      if (input.tagName.toLowerCase() ===w'input' && input.value.trim() === '' && !input.disabled) {
+      if (input.tagName.toLowerCase() ==='input' && input.value.trim() === '' && !input.disabled) {
           alert('Please fill out all fields'); // alert appropriate message
           input.focus(); // focus on the empty input
           return false; // stop further processing
