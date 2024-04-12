@@ -6,30 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
-        div{
-
-            background-image: url();
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
-        </style>
+        input[type="button"] {
+            background-color: #892680;
+            border-radius: 8px;
+            border-style: none;
+            box-sizing: border-box;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            height: 40px;
+            width: 100px;
+            line-height: 20px;
+            padding: 10px 16px;
+            text-align: center;
+        }
+
+        input[type="button"]:hover,
+        input[type="button"]:focus {
+            background-color: #590952;
+        }
+
+        #container {
+            position: absolute;
+            left:300px;
+            width: 80vw;
+            margin-left: auto;
+            margin-right: auto; /* Center the container */
+        }
+
+        #container > div {
+            height: fit-content;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 30px;
+        }
+
+        #container > div img {
+            width: 80%; 
+            transform: scale(0.85); 
+        }
+        
+        #button1 {
+            position: absolute;
+            top: 230px;
+            left: 525px;
+        }
+        
+        #button2 {
+            position: absolute;
+            top: 540px;
+            left: 525px;
+        }
+        
+        #button3 {
+            position: absolute;
+            top: 850px;
+            left: 525px;
+        }
+    </style>
 </head>
 
 <body>
-    <div
-        style="height: fit-content; width: 80vw;display: flex; justify-content: space-between; border: 2px solid; padding: 20px;margin: 30px;">
-        Flight 1
-        <input type="button" onclick="location.href='details.html';" value="Book" />
-    </div>
-    <div
-        style="height: fit-content; width: 80vw;display: flex; justify-content: space-between; border: 2px solid; padding: 20px;margin: 30px;">
-        Flight 2
-        <input type="button" onclick="location.href='details.html';" value="Book" />
-    </div>
-    <div
-        style="height: fit-content; width: 80vw;display: flex; justify-content: space-between; border: 2px solid; padding: 20px;margin: 30px;">
-        Flight 3
-        <input type="button" onclick="location.href='details.html';" value="Book" />
+    <div id="container">
+        <div>
+            <img src="/images/flight_1.png">
+            <input type="button" onclick="location.href='details.html';" value="Book" id="button1"/>
+        </div>
+        <div>
+            <img src="/images/flight_2.png">
+            <input type="button" onclick="location.href='details.html';" value="Book" id="button2"/>
+        </div>
+        <div>
+            <img src="/images/flight_3.png">
+            <input type="button" onclick="location.href='details.html';" value="Book" id="button3"/>
+        </div>
     </div>
 </body>
 
