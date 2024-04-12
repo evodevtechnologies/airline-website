@@ -50,7 +50,7 @@ window.addEventListener('scroll', () => {
 
   let { scrollY } = window;
   heading.style.top = "calc( 50% - " + (0.65 * scrollY) + "px )";
-  parallax.style.top = "calc( 50% - " + (0.5 * scrollY) + "px )";
+  parallax.style.top = "calc( 50% - " + (0.2 * scrollY) + "px )";
 });
 
 window.setTimeout(loadImages, 5000);

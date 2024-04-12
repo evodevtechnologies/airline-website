@@ -8,8 +8,12 @@ const airports = [
   "SFO - San Francisco International Airport",
   "SEA - Seattle-Tacoma International Airport",
   "LAS - McCarran International Airport",
-  "MIA - Miami International Airport"
+  "MIA - Miami International Airport",
+  "SIN - Singapore Changi Airport",
+  "CGK - Soekarno-Hatta International Airport (Jakarta, Indonesia)",
+  "JFK - John F. Kennedy International Airport (New York, USA)"
 ];
+
 
 document.addEventListener("DOMContentLoaded", function () {
     //Making the 'bookFlight' tab active initially
