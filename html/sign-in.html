@@ -8,12 +8,12 @@
     <script src="../js/sign-in.js" defer></script>
 </head>
 <body>
-    <a href="landing-page.html"><img src="../images/AVIAS_Gold.png" id="logo"></a>
+    <a href="../html/landing-page.html"><img src="../images/AVIAS_Gold.png" id="logo"></a>
     
     <div id="big-glass">
         <h1>SIGN IN</h1>
 
-        <form id="sign-in-form">
+        <form id="a" onsubmit="signIn(); return false;">
             <div class="email-field">
                 <input type="email" class="email-input" id="email" placeholder=" " required autofocus>
                 <label for="email" class="email-label"><i>Enter your email</i></label>
@@ -28,18 +28,18 @@
             <label id="rem-me"><input type="checkbox"><b><i>Remember Me</i></b></label>
             <a href="#" id="forget-pass"><b><i>Forget password?</i></b></a>
 
-            <input type="submit" value="Sign In" id="sign-in">
+            <input type="submit" value="Sign In" id="sign-in-button">
             <div id="line">
                 <div id="line_1"></div>
                 <div id="line_2"></div>
                 <p id="or"><b>OR</b></p>
             </div>
             
-            <a id="sign-in-google" href="sign-up.html">
+            <a id="sign-in-google" href="../html/sign-up.html">
                 <img src="../images/google_logo.png" alt="Google Logo">
                 <span>Sign In With Google</span>
             </a>
-            <a id="sign-in-apple" href="sign-up.html">
+            <a id="sign-in-apple" href="../html/sign-up.html">
                 <img src="../images/apple_logo.png" alt="Apple Logo">
                 <span>Sign In With Apple</span>
             </a>
@@ -51,12 +51,17 @@
     <div id="small-glass">
         <p id="line_3"><i>Start your journey with us</i></p>
         <div class="container">
-            <a id="sign-up" href="sign-up.html">SIGN UP</a>
-            <a href="sign-up.html"><img id="arrow_1" src="../images/arrow_1.png"></a>
+            <a id="sign-up" href="../html/sign-up.html">SIGN UP</a>
+            <a href="../html/sign-up.html"><img id="arrow_1" src="../images/arrow_1.png"></a>
         </div>
     </div>
 
-
-    
+     <!-- Notification container -->
+     <div class="notification" id="notification">
+        <span class="close-button" onclick="closeNotification()">&times;</span>
+        <h3 id="notification-header">Success!</h3>
+        <p class="notification-text" id="notification-text">Login Successful</p>
+        <div class="horizontal-line" id="horizontal-line"></div> <!-- Horizontal line added -->
+      </div>
 </body>
 </html>

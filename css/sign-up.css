@@ -1,35 +1,51 @@
-body{
-    margin:0;
+body {
+    margin: 0;
     background-image: url('../images/sign_up_bg.png');
-            background-size: cover; 
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            overflow: hidden;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
 }
 
-#logo{
+#logo {
     position: absolute;
-    top:10px;
-    left:16px;
-    height:48px;
+    top: 10px;
+    left: 16px;
+    height: 48px;
 }
-#big-glass{
+
+#big-glass {
     position: fixed;
-            top: 0;
-            left: calc(100% - 700px);
-            height: 100%;
-            width: 550px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    top: 0;
+    left: calc(100% - 700px);
+    height: 100%;
+    width: 550px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    z-index: 1;
 }
-#small-glass{
+@keyframes slideInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#big-glass > * {
+    animation: slideInFromBottom 0.7s ease forwards;
+}
+
+#small-glass {
     position: fixed;
-    top: 75%; 
-    left: 8%; 
+    top: 75%;
+    left: 8%;
     height: 150px;
     width: 300px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -38,31 +54,57 @@ body{
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    animation: slideInFromLeft 0.7s ease forwards;
 }
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 @media (max-width: 1196px) {
     #big-glass {
         left: calc(50% - 258.5px);
     }
 }
-h1{
-    position: absolute;
-    top:100px;
-    left:80px;
+
+#sign-up {
+    position: relative;
+    top: 0;
+    left: 0;
     font-family: 'Arkhip', sans-serif;
     color: white;
-    text-shadow: 0 2px 10px black;
+    font-size: 30px;
+}
+
+h1 {
+    position: absolute;
+    top: 120px;
+    left: 98px;
+    font-family: 'Arkhip', sans-serif;
+    color: white;
+    text-shadow: 0 2px 40px black;
     font-size: 40px;
 }
-p{
+
+/* Add other styles and animations below */
+
+
+#line_3{
     font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
     text-align: center;
     color: white;
     font-size: 23px;
 }
+
 a{
     text-decoration: none;
 }
-#sign-in{
+#sign-up-button{
     font-family: 'Arkhip', sans-serif;
     color: white;
     font-size: 30px;
@@ -87,15 +129,15 @@ a{
 .email-field {
     position: relative;
     margin-bottom: 20px;
-    top: 200px; /* Adjust as needed */
-    left:80px;
+    top: 225px;
+    left: 98px;
 }
 
 .email-input {
-    width: 350px; 
-    height: 35px; 
+    width: 350px;
+    height: 35px;
     padding: 5px;
-    transition: border-color 0.3s; 
+    transition: border-color 0.3s;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -103,24 +145,27 @@ a{
     border: 2px solid white;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     outline: none;
-    position: relative; /* Ensure z-index works */
+    position: relative;
+    font-size: 16px;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: text;
 }
 
 .email-input:focus,
 .email-input.has-value {
-    border-color: #892680; /* Change border color on focus or when value exists */
+    border-color: #892680;
 }
 
 .email-label {
     position: absolute;
     top: 9px;
     left: 25px;
-    color: #fff; /* Change text color to white */
-    font-size: 22px; /* Change font size to 20px */
-    font-family: "SF Pro Medium Italic", "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif; /* Change font family */
+    color: #fff;
+    font-size: 22px;
+    font-family: "SF Pro Medium Italic", "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
     transition: top 0.3s, font-size 0.3s, color 0.3s;
     pointer-events: none;
-    z-index: 1; /* Ensure the label is above the transparent border */
+    z-index: 1;
 }
 
 .email-input::before {
@@ -131,9 +176,9 @@ a{
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    border: 2px solid transparent; /* Set border to transparent */
-    z-index: 0; /* Ensure the pseudo-element is behind the label */
-    transition: border-color 0.3s; /* Transition for border color */
+    border: 2px solid transparent;
+    z-index: 0;
+    transition: border-color 0.3s;
 }
 
 .email-input:focus ~ .email-label,
@@ -148,23 +193,21 @@ a{
 
 .email-input:focus::before,
 .email-input.has-value::before {
-    border-color: rgba(137, 38, 128, 0.5); /* Partially transparent border */
-    
+    border-color: rgba(137, 38, 128, 0.5);
 }
+
+
 .email-input.invalid {
     border-color: red;
 }
 
 
 
-
-
-
 .password-field {
     position: relative;
     margin-bottom: 20px;
-    top: 205px; /* Adjust as needed */
-    left:80px;
+    top: 230px;
+    left: 98px;
 }
 
 .password-input {
@@ -179,24 +222,27 @@ a{
     border: 2px solid white;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     outline: none;
-    position: relative; /* Ensure z-index works */
+    position: relative;
+    font-size: 16px;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+    
 }
 
 .password-input:focus,
 .password-input.has-value {
-    border-color: #892680; /* Change border color on focus or when value exists */
+    border-color: #892680;
 }
 
 .password-label {
     position: absolute;
     top: 9px;
     left: 25px;
-    color: #fff; /* Change text color to white */
-    font-size: 22px; /* Change font size to 20px */
-    font-family: "SF Pro Medium Italic", "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif; /* Change font family */
+    color: #fff;
+    font-size: 22px;
+    font-family: "SF Pro Medium Italic", "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
     transition: top 0.3s, font-size 0.3s, color 0.3s;
     pointer-events: none;
-    z-index: 1; /* Ensure the label is above the transparent border */
+    z-index: 1;
 }
 
 .password-input::before {
@@ -207,9 +253,9 @@ a{
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    border: 2px solid transparent; /* Set border to transparent */
-    z-index: 0; /* Ensure the pseudo-element is behind the label */
-    transition: border-color 0.3s; /* Transition for border color */
+    border: 2px solid transparent;
+    z-index: 0;
+    transition: border-color 0.3s;
 }
 
 .password-input:focus ~ .password-label,
@@ -224,15 +270,15 @@ a{
 
 .password-input:focus::before,
 .password-input.has-value::before {
-    border-color: rgba(137, 38, 128, 0.5); /* Partially transparent border */
-}
+    border-color: rgba(137, 38, 128, 0.5);
+}    
 
 
 .confirm-password-field {
     position: relative;
     margin-bottom: 20px;
-    top: 210px; /* Adjust as needed */
-    left:80px;
+    top: 230px;
+    left: 98px;
 }
 
 .confirm-password-input {
@@ -247,25 +293,44 @@ a{
     border: 2px solid white;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     outline: none;
-    position: relative; /* Ensure z-index works */
+    position: relative;
+    font-size: 16px;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+    
 }
 
 .confirm-password-input:focus,
 .confirm-password-input.has-value {
-    border-color: #892680; /* Change border color on focus or when value exists */
+    border-color: #892680;
 }
 
 .confirm-password-label {
     position: absolute;
     top: 9px;
     left: 25px;
-    color: #fff; /* Change text color to white */
-    font-size: 22px; /* Change font size to 20px */
-    font-family: "SF Pro Medium Italic", "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif; /* Change font family */
+    color: #fff;
+    font-size: 22px;
+    font-family: "SF Pro Medium Italic", "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
     transition: top 0.3s, font-size 0.3s, color 0.3s;
     pointer-events: none;
-    z-index: 1; /* Ensure the label is above the transparent border */
+    z-index: 1;
 }
+
+.show-password-icon {
+    position: relative;
+    top: 7px;
+    left: -45px;
+    cursor: pointer;
+    height: 25px;
+    transition: transform 0.1s ease, filter 0.1s ease;
+}
+
+.show-password-icon:active {
+    transform: scale(0.95); 
+    filter: brightness(80%);
+}
+
+
 
 .confirm-password-input::before {
     content: '';
@@ -275,9 +340,9 @@ a{
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    border: 2px solid transparent; /* Set border to transparent */
-    z-index: 0; /* Ensure the pseudo-element is behind the label */
-    transition: border-color 0.3s; /* Transition for border color */
+    border: 2px solid transparent;
+    z-index: 0;
+    transition: border-color 0.3s;
 }
 
 .confirm-password-input:focus ~ .confirm-password-label,
@@ -292,8 +357,306 @@ a{
 
 .confirm-password-input:focus::before,
 .confirm-password-input.has-value::before {
-    border-color: rgba(137, 38, 128, 0.5); /* Partially transparent border */
+    border-color: rgba(137, 38, 128, 0.5);
 }
+
+
+
+
+#sign-up-button {
+    position: relative;
+    top: 250px;
+    left: 174px;
+    height: 40px;
+    width: 220px;
+    border-radius: 20px;
+    border: solid 2px #892680;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #FFFFFF;
+    letter-spacing: 0px;
+    color: #504949;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-shadow 0.3s, background-position 0.3s;
+    background-image: linear-gradient(to right, #FFFFFF 50%, #892680 50%);
+    background-size: 200% 100%;
+}
+
+#sign-up-button:hover {
+    background-position: -100% 0; 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
+    color: white;
+
+}
+
+
+
+#sign-up-button:active {
+    background-color: #E6E6E6; 
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.37); 
+    transform: scale(0.99); 
+}
+
+
+
+
+
+#line_1{
+    position: relative;
+    top:290px;
+    left:98px;
+    height:1px;
+    width:164px;
+    background-color: #504949;
+}
+#line_2{
+    position: relative;
+    top:289px;
+    left:298px;
+    height:1px;
+    width:164px;
+    background-color: #504949;
+}
+
+
+#or{
+    position: relative;
+    top:260.5px;
+    left:267.5px;
+    font-size: 18px;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-style: bold;
+    color: white;
+
+}
+
+#line{
+    position: relative;
+    top:0px;
+}
+
+#sign-in-google {
+    height: 30px; 
+    width:300px;
+    position: relative;
+    top:270px;
+    left:118px;
+    width:300px;
+    display: inline-block; 
+    position: relative;
+    padding: 5px 10px; 
+    border-radius: 50px;
+    border: solid 2px #892680;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #FFFFFF;
+    letter-spacing: 0px;
+    color: #504949;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 30px; 
+    color: #504949;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+}
+
+#sign-in-google img {
+
+    height: 30px;
+    margin-right: 10px;
+}
+#sign-in-google:active {
+    transform: scale(0.99); 
+    filter: brightness(90%);
+}
+
+#sign-in-apple {
+    height: 30px; 
+    width:300px;
+    position: relative;
+    top:290px;
+    left:118px;
+    width:300px;
+    display: inline-block; 
+    position: relative;
+    padding: 5px 10px; 
+    border-radius: 50px;
+    border: solid 2px black;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: black;
+    letter-spacing: 0px;
+    color: #504949;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 30px; 
+    color: #FFFFFF;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+}
+#sign-in-apple img {
+
+    height: 25px;
+    margin-right: 10px;
+}
+#sign-in-apple:active {
+    transform: scale(0.99); 
+    filter: brightness(90%);
+}
+
+#tnc {
+    position: relative;
+    top: 302px;
+    left: 280px; 
+    transform: translateX(-50%); 
+    text-align: center; 
+    line-height: 22px;
+    font-family: "SF Pro", "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+#tos{
+    color: #892680;
+}
+
+.alert-icon {
+    position: absolute;
+    top: 50%;
+    right: 150px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: red;
+    display: inline;
+    cursor: help; /* Set cursor to pointer to indicate it's clickable */
+}
+
+.alert-icon:hover::before {
+    content: 'Invalid email'; /* Tooltip message */
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.password-strength-popup {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 1;
+    display: none; /* Hide initially */
+}
+
+.password-strength-popup.valid {
+    background-color: green;
+}
+
+.password-strength-popup ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.password-strength-popup li {
+    color: red; /* Default color */
+}
+
+.password-strength-popup li.valid {
+    color: green;
+}
+
+
+.notification {
+    position: absolute;
+    top: 20px;
+    right: -450px;
+    width: 250px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    transition: right 0.5s ease-in-out; /* Transition for smooth animation */
+    z-index: 1000; /* Set a high z-index value */
+}
+
+
+  .horizontal-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px; /* Reduced height */
+    width: 100%;
+    background-color: #fff; /* White color */
+    animation: none; /* Initially no animation */
+  }
+
+  .notification h3 {
+    margin: 0 0 10px;
+  }
+
+  .notification-text {
+    margin: 0;
+  }
+
+  .show-notification-button {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .show-notification-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  @keyframes reduceWidth {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
+  }
+
+  .notification.success {
+    background-color: #4caf50; /* Green background for success */
+    color: white;
+  }
+
+  .notification.error {
+    background-color: #ff0000; /* Red background for error */
+    color: white;
+  }
+
 
 
 

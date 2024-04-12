@@ -5,52 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AVIAS</title>
     <link rel="stylesheet" href="../css/sign-up.css">
-    <script src="../js/sign-up.js" defer></script>
+    <script src="sign-up.js" defer></script>
 </head>
 <body>
-    <a href="landing-page.html"><img src="../images/AVIAS_Gold.png" id="logo"></a>
+    <a href="../html/index.html"><img src="../images/AVIAS_Gold.png" id="logo"></a>
     <div id="big-glass">
         <h1>SIGN UP</h1>
         <form>
             <div class="email-field">
-                <input type="email" class="email-input" id="email" placeholder=" " required>
+                <input type="email" class="email-input" id="email" placeholder=" " required autofocus>
                 <label for="email" class="email-label"><i>Enter your email</i></label>
+                <img src="../images/alert.png" id="alert-icon" class="alert-icon" alt="Alert" style="width: 20px; height: 20px; margin-left: 5px; display: none;" title="Invalid email">
             </div>
+            
             <div class="password-field">
                 <input type="password" class="password-input" id="password" placeholder=" " required>
                 <label for="password" class="password-label"><i>Enter your password</i></label>
+                <div id="password-strength-popup" class="password-strength-popup">Password must contain at least 8 characters and 1 uppercase letter.</div>
             </div>
-            <div class="confirm-password-field">
-                <input type="password" class="confirm-password-input" id="confirmPassword" placeholder=" " required>
-                <label for="confirmPassword" class="confirm-password-label"><i>Confirm your password</i></label>
+            
+            <div class="password-field">
+                <input type="password" class="password-input" id="password" placeholder=" " required>
+                <label for="password" class="password-label"><i>Re-Enter your password</i></label>
             </div>
-            <input type="submit" value="Sign In" id="sign-in">
+            
+            <input type="submit" value="Sign up" id="sign-up-button" onclick="redirectToOTPAuth()">
+
             <div id="line">
                 <div id="line_1"></div>
                 <div id="line_2"></div>
                 <p id="or"><b>OR</b></p>
             </div>
             
-            <a id="sign-in-google" href="sign-up.html">
-                <!-- <img src="images/google_logo.png" alt="Google Logo"> -->
-                <span>Sign In With Google</span>
+            <a id="sign-in-google" href="../html/sign-up.html">
+                <img src="../images/google_logo.png" alt="Google Logo">
+                <span>Sign Up With Google</span>
             </a>
             <a id="sign-in-apple" href="sign-up.html">
-                <!-- <img src="images/apple_logo.png" alt="Apple Logo"> -->
-                <span>Sign In With Apple</span>
+                <img src="../images/apple_logo.png" alt="Apple Logo">
+                <span>Sign Up With Apple</span>
             </a>
             <p id="tnc">By continuing, you agree to <b>AVIAS’</b><br>
                 <a href="#" id="tos"><b>Terms of Service</b></a> & <a href="#" id="tos"><b>Privacy Policy</b></a></p>
         </form>
     </div>
-    <a>
-        <div id="small-glass">
-            <p><i>Already a member?</i></p>
-            <div class="container">
-                <a id="sign-in" href="sign-in.html">SIGN IN</a>
-                <a href="#"><img id="arrow_1" src="../images/arrow_1.png"></a>
-            </div>
+    
+    <div id="small-glass">
+        <p id="line_3"><i>Start your journey with us</i></p>
+        <div class="container">
+            <a id="sign-up" href="../html/sign-in.html">SIGN IN</a>
+            <a href="../html/sign-in.html"><img id="arrow_1" src="../images/arrow_1.png"></a>
         </div>
-    </a>
+    </div>
+    <div class="notification" id="notification">
+        <span class="close-button" onclick="closeNotification()">&times;</span>
+        <h3 id="notification-header">Success!</h3>
+        <p class="notification-text" id="notification-text">Login Successful</p>
+        <div class="horizontal-line" id="horizontal-line"></div> <!-- Horizontal line added -->
+    </div>
 </body>
 </html>

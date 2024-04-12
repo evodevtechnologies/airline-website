@@ -6,7 +6,9 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow: hidden;
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    transition: background-color 0.3s ease; 
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
 }
 
 #logo {
@@ -324,7 +326,7 @@ a {
 
 }
 
-#sign-in {
+#sign-in-button {
     position: relative;
     top: 300px;
     left: -100px;
@@ -346,7 +348,7 @@ a {
     background-size: 200% 100%;
 }
 
-#sign-in:hover {
+#sign-in-button:hover {
     background-position: -100% 0; 
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
     color: white;
@@ -355,15 +357,11 @@ a {
 
 
 
-#sign-in:active {
+#sign-in-button:active {
     background-color: #E6E6E6; 
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.37); 
     transform: scale(0.99); 
 }
-
-
-
-
 
 #line_1{
     position: relative;
@@ -375,7 +373,7 @@ a {
 }
 #line_2{
     position: relative;
-    top:340px;
+    top:339px;
     left:298px;
     height:1px;
     width:164px;
@@ -487,6 +485,77 @@ a {
     color: #892680;
 }
 
+.notification {
+    position: absolute;
+    top: 20px;
+    right: -450px;
+    width: 250px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    transition: right 0.5s ease-in-out; /* Transition for smooth animation */
+    z-index: 1000; /* Set a high z-index value */
+}
 
 
+  .horizontal-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px; /* Reduced height */
+    width: 100%;
+    background-color: #fff; /* White color */
+    animation: none; /* Initially no animation */
+  }
+
+  .notification h3 {
+    margin: 0 0 10px;
+  }
+
+  .notification-text {
+    margin: 0;
+  }
+
+  .show-notification-button {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .show-notification-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  @keyframes reduceWidth {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
+  }
+
+  .notification.success {
+    background-color: #4caf50; /* Green background for success */
+    color: white;
+  }
+
+  .notification.error {
+    background-color: #ff0000; /* Red background for error */
+    color: white;
+  }
 
