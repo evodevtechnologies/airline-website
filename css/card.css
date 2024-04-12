@@ -95,7 +95,7 @@
     max-height: 85px;
     overflow: hidden;
     font-family: var(--def-font);
-    font-size: 23px;
+    font-size: 32px;
     line-height: 28px;
     text-transform: uppercase;
     text-shadow: 0px 1px 5px black;
@@ -127,8 +127,8 @@
   .card__button {
     display: inline-block;
     padding: 10px 20px;
-    color: white;
-    border: 1px solid white;
+    color: gold;
+    border: 1px solid gold;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     text-transform: uppercase;
