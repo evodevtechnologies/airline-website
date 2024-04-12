@@ -17,16 +17,23 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--base-color);
+            background-image: url('../images/sign_up_bg.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
         }
 
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: var(--base-color);
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
         .passenger-card {
@@ -46,6 +53,8 @@
 
         .passenger-card h2 {
             margin-top: 0;
+            font-family: 'Arkhip', sans-serif;
+            color: #892680;
         }
 
         label {
@@ -84,6 +93,11 @@
             margin-top: 5px;
             display: none;
             /* Hide error messages by default */
+        }
+        h1{
+            font-family: 'Arkhip', sans-serif;
+            color: #892680;
+
         }
     </style>
 </head>

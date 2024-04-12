@@ -15,10 +15,14 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--base-color);
             margin: 0;
             padding: 0;
             color: #333;
+            background-image: url('../images/sign_up_bg.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
         }
 
         .container {
@@ -28,12 +32,20 @@
             border-radius: 8px;
             padding: 30px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
         h1 {
             text-align: center;
             margin-bottom: 30px;
             font-size: 28px;
+            font-family: 'Arkhip', sans-serif;
+            color: #792172;
+            font-size: 48px;
         }
 
         form {

@@ -23,6 +23,18 @@
         dateOfTravel: "January 15, 2024",
         dateOfBooking: "January 10, 2024"
     },
+    {
+        bookingId: "FLBK123456",
+        userId: "USER123",
+        flightNumber: "XYZ123",
+        sourceAirport: "JFK (John F. Kennedy International Airport)",
+        destinationAirport: "LAX (Los Angeles International Airport)",
+        numOfPassengers: 2,
+        travelClass: "Business",
+        dateOfTravel: "January 15, 2024",
+        dateOfBooking: "January 10, 2024"
+    },
+    
 ];
 
 // Function to generate booking cards
