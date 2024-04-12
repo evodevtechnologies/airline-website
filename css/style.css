@@ -236,7 +236,7 @@ header {
   font-size: 50px;
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
 }
 
 .header-right {
@@ -319,8 +319,13 @@ header {
 /* #region Horizontal Scroll*/
 
 .scroll-heading {
-  background-color: var(--base-color);
-  color: black;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.18);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  font-family: var(--def-font);
+  color: var(--dark-purple);
   text-align: center;
   font-size: 5rem;
   font-weight: 900;
@@ -370,7 +375,6 @@ header {
   object-fit:contain;
   pointer-events: none;
 }
-
 
 
 /* #endregion */

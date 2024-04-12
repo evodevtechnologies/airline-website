@@ -58,7 +58,7 @@ const hero = document.querySelector(".hero");
 let heroIndex = 1;
 function loadImages() {
 
-  hero.style.backgroundImage = "url(../images/hero-" + heroIndex + ".jpg)";
+  hero.style.backgroundImage = "url(../images/mahi-" + heroIndex + ".jpg)";
   heroIndex++;
   if (heroIndex > 3) {
     heroIndex = 1;
