@@ -1,3 +1,12 @@
+:root {
+  --base-color: white;
+  --accent: gold;
+  --purple: #892680;
+  --dark-purple: #792172;
+  --def-font: 'Arkhip', sans-serif;
+  --reg-font: 'Roboto', sans-serif;
+}
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -85,9 +94,10 @@
     display: -webkit-box;
     max-height: 85px;
     overflow: hidden;
-    font-family: 'Playfair Display', serif;
+    font-family: var(--def-font);
     font-size: 23px;
     line-height: 28px;
+    text-transform: uppercase;
     text-shadow: 0px 1px 5px black;
     text-overflow: ellipsis;
     -webkit-line-clamp: 3;
@@ -99,7 +109,7 @@
     max-height: 150px;
     margin: 20px 0;
     overflow: hidden;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--reg-font);
     font-size: 16px;
     line-height: 20px;
     text-overflow: ellipsis;
@@ -110,7 +120,7 @@
 
   @media (min-width: 1024px) {
     .card__snippet {
-      margin: 60px 0;
+      margin: 80px 0;
     }
   }
 

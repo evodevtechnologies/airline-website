@@ -3,6 +3,8 @@
   --accent: gold;
   --purple: #892680;
   --dark-purple: #792172;
+  --def-font: 'Arkhip', sans-serif;
+  --reg-font: 'Roboto', sans-serif;
 }
 
 section {
@@ -20,7 +22,7 @@ section {
 body {
   min-height: 100vh;
   max-width: 100vw;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--reg-font);
   color: var(--accent);
   background-color: var(--base-color);
   height: fit-content;
@@ -38,7 +40,6 @@ body::-webkit-scrollbar {
   justify-content: space-around;
   align-items: center;
   padding: 10px 0 10px 0;
-  margin-top: 10px;
 }
 
 /* #region Top Bar */
@@ -82,20 +83,6 @@ body::-webkit-scrollbar {
 /* #endregion */
 
 /* #region Navbar */
-
-
-a:link { 
-  text-decoration: none; 
-} 
-a:visited { 
-  text-decoration: none; 
-} 
-a:hover { 
-  text-decoration: none; 
-} 
-a:active { 
-  text-decoration: none; 
-}
 
 .page-nav {
   
